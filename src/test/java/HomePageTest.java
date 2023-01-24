@@ -1,4 +1,3 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,8 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+import java.sql.SQLOutput;
 import java.time.Duration;
 
 public class HomePageTest {
@@ -23,20 +23,26 @@ public class HomePageTest {
     }
 
     @BeforeAll
-    static void setupAll() {
-        WebDriverManager.chromedriver().setup();
+    static void setup_driver_before_test(){
+        try {
+            BaseTest.setupwebdriver();
+        }
+        catch (Exception e){
+                System.out.println("Cannot launch driver");
+            }
+
     }
     @BeforeEach
-    void setup() {
-        driver = new ChromeDriver();
+    static void driver_to_test(){
+        BaseTest.setup_newdriver_to_test();
     }
+    BaseTest.setup_newdriver_to_test();
+
 
     @AfterEach
-    void teardown() {
-        driver.quit();
-    }
+    BaseTest.teardown();
     @Test
-    void login_and_check_page_title() throws InterruptedException {
+    void login_and_check_page_title() extends BaseTest  {
         //Login to the environment
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Globalny Wait
