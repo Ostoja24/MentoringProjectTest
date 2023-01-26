@@ -1,10 +1,20 @@
 import org.json.JSONObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.notification.Failure;
+import org.junit.runner.notification.RunListener;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class BaseTest {
     // Variables used in Test Project
@@ -17,6 +27,7 @@ public class BaseTest {
     private String orgURL;
     private String screenMode;
     protected WebDriver driver;
+
     @BeforeAll
     public void setup_before_test() {
 
@@ -26,14 +37,19 @@ public class BaseTest {
         // Chrome Options
         ChromeOptions options = new ChromeOptions();
         if ("headless".equals(screenMode)) {
-            options.addArguments("--headless", "--no-sandbox", "--disable-gpu","--windows-size=1920,1040");
-        }
-        else {
+            options.addArguments("--headless", "--no-sandbox", "--disable-gpu", "--windows-size=1920,1040");
+        } else {
             options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized");
         }
         driver = new ChromeDriver(options);
-    @AfterAll
-    public void teardown() {
+        // Junit listener launching
+        JUnitCore junit = new JUnitCore();
+        junit.addListener(new ScreenshotListener((TakesScreenShots) webDriver));
+        @AfterEach
+
+
+        @AfterAll
+        public void teardown () {
             if (driver != null) {
                 driver.close();
                 driver.quit();
@@ -42,25 +58,31 @@ public class BaseTest {
 
         // METHODS
 
-    public void getCredentials () {
-        JSONObject obj_credentials = new JSONObject(getCredentialsOrg);
-        usernameAdmin = obj_credentials.getString("username");
-        passwordAdmin = obj_credentials.getString("password");
-        orgURL = obj_credentials.getString("org_url");
+        public void getCredentials () {
+            JSONObject obj_credentials = new JSONObject(getCredentialsOrg);
+            usernameAdmin = obj_credentials.getString("username");
+            passwordAdmin = obj_credentials.getString("password");
+            orgURL = obj_credentials.getString("org_url");
         }
-    public void getSettings() {
-        JSONObject obj_credentials = new JSONObject(getCredentialsOrg);
-        screenMode = obj_credentials.getString("screenmode");
-    }
-
-        public void get_Enviroment_data () {
-
+        public void getSettings () {
+            JSONObject obj_credentials = new JSONObject(getCredentialsOrg);
+            screenMode = obj_credentials.getString("screenmode");
+        }
+        public String ScreenshotReportAllure () {
+            Path directory = Paths.get("report/allure-report-selenium-SF");
         }
 
-
     }
 
-    private void teardown() {
-    }
-}
+public static class ScreenshotListener extends RunListener {
+
+       private TakesScreenshot screenshotTaker;
+
+            @Override
+            public void testFailure(Failure failure) throws Exception {
+                File file = screenshotTaker.getScreenshotAs(OutputType.File);
+
+
+            }
+        }}
 
