@@ -1,0 +1,11 @@
+{
+  "AccountName": "",
+  "AccountType": "",
+  "AccountRating": "",
+  "AccountIndustry": "",
+  "AccountCustomerPriority": "",
+  "AccountSLA":"",
+  "BillingStreet": "",
+  "BillingCity": "",
+  "BillingZip": ""
+}
