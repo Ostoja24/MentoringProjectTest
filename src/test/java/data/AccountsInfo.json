@@ -1,11 +1,11 @@
 {
-  "AccountName": "",
-  "AccountType": "",
-  "AccountRating": "",
-  "AccountIndustry": "",
-  "AccountCustomerPriority": "",
-  "AccountSLA":"",
-  "BillingStreet": "",
-  "BillingCity": "",
-  "BillingZip": ""
+  "AccountName": "TestAccount",
+  "AccountType": "Prospect",
+  "AccountRating": "Cold",
+  "AccountIndustry": "Banking",
+  "AccountCustomerPriority": "Low",
+  "AccountSLA":"Bronze",
+  "BillingStreet": "Toruńska",
+  "BillingCity": "Toruń",
+  "BillingZip": "87-100"
 }

@@ -2,16 +2,19 @@ import org.json.JSONObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.json.JSONTokener;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.time.Duration;
 
 public class BaseTest {
     // Variables used in Test Project
-
 
     private final static String ORG_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\data_login.json";
     private String getInfoOrg;
@@ -19,7 +22,9 @@ public class BaseTest {
     private String passwordAdmin;
     private String orgURL;
     private String screenMode;
-    protected static WebDriver driver = new ChromeDriver();
+    protected static ChromeOptions options = new ChromeOptions();
+    protected static WebDriver driver = new ChromeDriver(options);
+    private int implicitWaitValue;
 
 
     @BeforeAll
@@ -29,12 +34,11 @@ public class BaseTest {
         @BeforeEach
         public void setup_test () throws FileNotFoundException {
             // Chrome Options
-            System.out.println(getGetInfoOrg());
             ChromeOptions options = new ChromeOptions();
             if (getScreenMode().equals("1")) {
-                options.addArguments("--headless", "--no-sandbox", "--disable-gpu", "--windows-size=1920,1040");
+                options.addArguments("--headless", "--no-sandbox", "--disable-gpu", "--windows-size=1920,1040","allow-silent-push", "--disable-notifications");
             } else {
-                options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized");
+                options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized","allow-silent-push");
             }
             driver = new ChromeDriver(options);
 
@@ -108,6 +112,13 @@ public class BaseTest {
 
     public void setGetInfoOrg(String getInfoOrg) {
         this.getInfoOrg = getInfoOrg;
+    }
+    public void implicitwaittest(WebDriver driver){
+        implicitWaitValue = 20;
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitValue));
+    }
+    public Object explicitwaittest(WebDriver driver, WebElement element){
+        return new WebDriverWait(driver,Duration.ofSeconds(implicitWaitValue)).until(ExpectedConditions.visibilityOf(element));
     }
 }
 

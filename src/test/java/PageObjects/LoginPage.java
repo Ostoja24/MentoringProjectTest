@@ -25,6 +25,8 @@ public class LoginPage {
 
     @FindBy(xpath = "//*[@id='Login']")
     private WebElement loginButton;
+    @FindBy(xpath = "//a[@class='tabHeader slds-context-bar__label-action ']//span[@class='title slds-truncate'][normalize-space()='Home']")
+    private WebElement HomeButton;
 
     private String pageTitle;
     private final static String ORG_INFORMATION = "src/test/java/data/data_login.json";
@@ -47,9 +49,9 @@ public class LoginPage {
     }
 
     public void navigateToLoginUrl(WebDriver driver, String orgURL) {
-        driver.get(getUsernameAdmin());
+        driver.get(orgURL);
     }
-    public String returnPagetitle(){
+    public String returnPagetitle(WebDriver driver){
         return driver.getCurrentUrl();
     }
 

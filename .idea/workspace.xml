@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Base Test Class changes">
-      <change afterPath="$PROJECT_DIR$/src/test/java/AccountPageTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/Accounts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/allureScreenshotTestClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/e2e/e2eaddAccount.java" afterDir="false" />
+    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="New changes and fixes">
+      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/SetupPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AccountPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AccountPageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/HomePageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HomePageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/data/AccountsInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/AccountsInfo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/data/data_login.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/data_login.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,10 +47,23 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Users/tomcz/IdeaProjects/MentoringProjectTest",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.HomePageTest.login_and_check_page_title">
+  <component name="RunManager" selected="JUnit.AccountPageTest.newAccount">
+    <configuration name="AccountPageTest.newAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MentoringProjectTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccountPageTest" />
+      <option name="METHOD_NAME" value="newAccount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HomePageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
@@ -83,6 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AccountPageTest.newAccount" />
         <item itemvalue="JUnit.HomePageTest.login_and_check_page_title" />
         <item itemvalue="JUnit.HomePageTest.login_and_check_page_title (1)" />
         <item itemvalue="JUnit.HomePageTest" />
@@ -119,7 +132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674714791989</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="New changes and fixes">
+      <created>1675936725069</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675936725069</updated>
+    </task>
+    <task id="LOCAL-00005" summary="New changes and fixes">
+      <created>1675937600321</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675937600321</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,15 +163,31 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creating Base Test and First Class to Test Project" />
     <MESSAGE value="Base Test Class changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base Test Class changes" />
+    <MESSAGE value="New changes and fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="New changes and fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/BaseTest.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
