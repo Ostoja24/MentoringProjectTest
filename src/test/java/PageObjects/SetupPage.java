@@ -7,19 +7,26 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SetupPage {
-    @FindBy(xpath = "//a[@class='tabHeader slds-context-bar__label-action ']//span[@class='title slds-truncate'][normalize-space()='Home']")
+    public SetupPage(WebDriver driver){
+        super(driver);
+    }
+    private static final String xpathhomepage = "//a[@class='tabHeader slds-context-bar__label-action ']//span[@class='title slds-truncate'][normalize-space()='Home']"
+    @FindBy(xpath = xpathhomepage)
     private WebElement HomePage;
-    @FindBy (xpath = "//div[@class='slds-icon-waffle']")
+    private static final String xpathwaffle = "//div[@class='slds-icon-waffle']";
+    @FindBy (xpath = xpathwaffle)
     private WebElement Waffle;
-    @FindBy (xpath = "//input[@class='slds-input']")
+    private static final String xpathsearchinput = "//div[@class='slds-icon-waffle']";
+    @FindBy (xpath = xpathsearchinput)
     private WebElement SearchInput;
-    @FindBy (xpath = "//a[@id='Home']//b[contains(text(),'Home')]")
-    private WebElement HomePageRecord;
+    private static final String xpathaccountpagerecord = "//b[normalize-space()='Accounts']";
+    @FindBy (xpath = xpathaccountpagerecord)
+    private WebElement AccountPageRecord;
 
     public void HomePageClick(WebDriver driver){
         Waffle.click();
-        SearchInput.sendKeys("Home");
-        HomePageRecord.click();
+        SearchInput.sendKeys("Accounts");
+        AccountPageRecord.click();
     }
     public void SetupPageInit(WebDriver driver) {
         PageFactory.initElements(driver, this);

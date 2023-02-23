@@ -22,16 +22,16 @@ public class AccountPageTest extends BaseTest {
         loginPage.LoginPageInit(driver);
         String usernamevalue_login = getUsernameAdmin();
         String passwordvalue_login = getPasswordAdmin();
-        loginPage.putkeysUsername(usernamevalue_login);
-        loginPage.putkeysPassword(passwordvalue_login);
-        loginPage.submit();
-        setupPage.SetupPageInit(driver);
+        loginPage.putkeysUsername(usernamevalue_login)
+        .putkeysPassword(passwordvalue_login)
+        .submit()
+        .SetupPageInit(driver);
         accountPage.getAccountFormInfo();
         accountPage.AccountInfoJSON();
         setupPage.HomePageClick(driver);
         homepage.HomePageInit(driver);
-        explicitwaittest(driver,HomePage.getAccountTab());
-        homepage.AccountTabClick(driver);
+//        explicitwaittest(driver,"//span[normalize-space()='Accounts']");
+//        homepage.AccountTabClick(driver);
         accountPage.AccountPageInit(driver);
         accountPage.newAccountForm(driver);
         String AccountIndustryValue = accountPage.getAccountIndustry();
@@ -41,7 +41,7 @@ public class AccountPageTest extends BaseTest {
         String AccountCustomerPriorityValue = accountPage.getAccountCustomerPriority();
         String BillingCityValue = accountPage.getBillingCity();
         accountPage.putkeysAccountName(AccountNameValue);
-        accountPage.putkeysAccountIndustry(AccountIndustryValue);
+        accountPage.putkeysAccountIndustry(driver,AccountIndustryValue);
         accountPage.putkeysBillingCity(BillingCityValue);
         accountPage.submitNewAccount(driver);
         WebElement AccountTitleValue = accountPage.getAccountNameTitleField();

@@ -6,7 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class LoginPage {
+public class LoginPage extends BasePage {
+    public LoginPage(WebDriver driver){
+        super(driver);
+    }
 
 
     private WebDriver driver;
@@ -36,16 +39,19 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void submit() {
+    public SetupPage submit() {
         loginButton.click();
+        return new SetupPage(driver);
     }
 
-    public void putkeysUsername(String usernameValue) {
+    public LoginPage putkeysUsername(String usernameValue) {
         usernameInput.sendKeys(usernameValue);
+        return this;
     }
 
-    public void putkeysPassword(String passwordValue) {
+    public LoginPage putkeysPassword(String passwordValue) {
         passwordInput.sendKeys(passwordValue);
+        return this;
     }
 
     public void navigateToLoginUrl(WebDriver driver, String orgURL) {

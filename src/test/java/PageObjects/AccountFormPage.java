@@ -1,6 +1,7 @@
 package PageObjects;
 
 import org.json.JSONTokener;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,8 +10,12 @@ import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.List;
 
-public class AccountFormPage {
+public class AccountFormPage extends BasePage {
+    public AccountFormPage(WebDriver driver){
+        super(driver);
+    }
     private final static String ACCOUNT_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\AccountsInfo.json";
     private String AccountName;
     private String AccountType;
@@ -22,30 +27,44 @@ public class AccountFormPage {
     private String BillingCity;
     private String BillingZip;
 
-    @FindBy(xpath = "//span[@class='slds-truncate'][normalize-space()='Accounts']")
+    private static final String xpathaccounttab = "//span[normalize-space()='Accounts']";
+    @FindBy(xpath = xpathaccounttab)
     private static WebElement AccountTab;
 
-    @FindBy(xpath = "//a[@class='tabHeader slds-context-bar__label-action ']//span[@class='title slds-truncate'][normalize-space()='Home']")
+    private static final String xpathhomepage = "//a[@class='tabHeader slds-context-bar__label-action ']//span[@class='title slds-truncate'][normalize-space()='Home']";
+    @FindBy(xpath = xpathhomepage)
     private WebElement HomePage;
-    @FindBy (xpath = "//div[@class='slds-icon-waffle']")
+
+    private static final String xpathwaffle = "//div[@class='slds-icon-waffle']";
+    @FindBy(xpath = xpathwaffle)
     private WebElement Waffle;
-    @FindBy (xpath = "//input[@class='slds-input']")
+
+    private static final String xpathsearchinput = "//input[@class='slds-input']";
+    @FindBy(xpath = xpathsearchinput)
     private WebElement SearchInput;
-    @FindBy (xpath = "//a[@id='Home']//b[contains(text(),'Home')]")
+
+    private static final String xpathhomepagerecord = "//a[@id='Home']//b[contains(text(),'Home')]";
+    @FindBy(xpath = xpathhomepagerecord)
     private WebElement HomePageRecord;
 
-    @FindBy(xpath = "//a[@title='New']")
+    private static final String xpathaccountnewbutton = "//a[@id='Home']//b[contains(text(),'Home')]";
+    @FindBy(xpath = xpathaccountnewbutton)
     private WebElement AccountNewButton;
-    @FindBy(name = "Name")
+
+    private static final String xpathaccountnamelement = "//input[@name='Name']";
+    @FindBy(xpath = xpathaccountnamelement)
     private WebElement AccountNameElement;
 
-    @FindBy(xpath = "//*[@id='combobox-button-216']")
+    private static final String xpathaccounttypefield = "//*[@id='combobox-button-216']";
+    @FindBy(xpath = xpathaccounttypefield)
     private WebElement AccountTypeField;
 
-    @FindBy(xpath = "//*[@id='combobox-button-183']")
+    private static final String xpathaccountratingfield = "//*[@id='combobox-button-183']";
+    @FindBy(xpath = xpathaccountratingfield)
     private WebElement AccountRatingField;
 
-    @FindBy(xpath = "//*[@id='combobox-button-233]")
+    private static final String xpathaccountindustryfield = "//button[starts-with(@aria-label,'Industry')]";
+    @FindBy(xpath = xpathaccountindustryfield)
     private WebElement AccountIndustryField;
 
     @FindBy(id = "combobox-button-270")
@@ -53,18 +72,29 @@ public class AccountFormPage {
 
     @FindBy(id = "combobox-button-278")
     private WebElement AccountSLAField;
-    @FindBy(name = "street")
+    private static final String xpathbillingstreetfield = "//records-record-layout-item[@field-label='Billing Address']//textarea[@name='street']";
+    @FindBy(xpath = xpathbillingstreetfield)
     private WebElement BillingStreetField;
-    @FindBy(name = "city")
+    private static final String xpathbillingcityfield = "//records-record-layout-item[@field-label='Billing Address']//input[@name='city']";
+    @FindBy(xpath = xpathbillingcityfield)
     private WebElement BillingCityField;
-    @FindBy(name = "postalCode")
-    private WebElement BillingZipField;
 
-    @FindBy(name = "SaveEdit")
+    private static final String xpathbillingzipfield = "//records-record-layout-item[@field-label='Billing Address']//input[@name='postalCode']";
+    @FindBy(xpath = xpathbillingzipfield)
+    private WebElement BillingZipField;
+    private static final String xpathsaveaccountrecordbutton = "//button[@name='SaveEdit']";
+
+    @FindBy(xpath = xpathsaveaccountrecordbutton)
     private WebElement SaveAccountRecordButton;
 
-    @FindBy(xpath = "//lightning-formatted-text[@class='custom-truncate']")
+    private static final String xpathaccountnametitlefield = "//lightning-formatted-text[@class='custom-truncate']";
+    @FindBy(xpath = xpathaccountnametitlefield)
     private WebElement AccountNameTitleField;
+
+    private static final String xpathindustryagriculture = "//button[contains(text(),'-1-')]";
+    @FindBy(xpath = xpathindustryagriculture)
+    private WebElement AccountIndustryField;
+
 
     public JSONTokener getAccountFormInfo() throws FileNotFoundException {
         return new JSONTokener(new FileReader(ACCOUNT_INFORMATION));
@@ -143,81 +173,86 @@ public class AccountFormPage {
         AccountTypeField.sendKeys(AccountType);
     }
 
-    public void putkeysAccountIndustry(String AccountIndustry) {
-        AccountIndustryField.sendKeys(AccountIndustry);
-    }
+    public void putkeysAccountIndustry(WebDriver driver, String AccountIndustry) {
+        AccountIndustryField.click();
+        List<WebElement> list = driver.findElements(By.xpath("//button[contains(@aria-activedescdentant,'combobox')]"));
+        for (WebElement webElement : list) {
+            if (webElement.getText().contains(AccountIndustry)) {
+                webElement.click();
+            }
 
-    public void putkeysAccountCustomerPriority(String AccountCustomerPriority) {
-        AccountCustomerField.sendKeys(AccountCustomerPriority);
-    }
+        }}
+        public void putkeysAccountCustomerPriority (String AccountCustomerPriority){
+            AccountCustomerField.sendKeys(AccountCustomerPriority);
+        }
 
-    public void putkeysBillingStreet(String BillingStreet) {
-        BillingStreetField.sendKeys(BillingStreet);
-    }
+        public void putkeysBillingStreet (String BillingStreet){
+            BillingStreetField.sendKeys(BillingStreet);
+        }
 
-    public void putkeysBillingCity(String BillingCity) {
-        BillingCityField.sendKeys(BillingCity);
-    }
+        public void putkeysBillingCity (String BillingCity){
+            BillingCityField.sendKeys(BillingCity);
+        }
 
-    public void putkeysBillingZip(String BillingZip) {
-        BillingZipField.sendKeys(BillingZip);
-    }
+        public void putkeysBillingZip (String BillingZip){
+            BillingZipField.sendKeys(BillingZip);
+        }
 
-    public void setAccountName(String accountName) {
-        AccountName = accountName;
-    }
+        public void setAccountName (String accountName){
+            AccountName = accountName;
+        }
 
-    public void setAccountType(String accountType) {
-        AccountType = accountType;
-    }
+        public void setAccountType (String accountType){
+            AccountType = accountType;
+        }
 
-    public void setAccountRating(String accountRating) {
-        AccountRating = accountRating;
-    }
+        public void setAccountRating (String accountRating){
+            AccountRating = accountRating;
+        }
 
-    public void setAccountIndustry(String accountIndustry) {
-        AccountIndustry = accountIndustry;
-    }
+        public void setAccountIndustry (String accountIndustry){
+            AccountIndustry = accountIndustry;
+        }
 
-    public void setAccountCustomerPriority(String accountCustomerPriority) {
-        AccountCustomerPriority = accountCustomerPriority;
-    }
+        public void setAccountCustomerPriority (String accountCustomerPriority){
+            AccountCustomerPriority = accountCustomerPriority;
+        }
 
-    public void setAccountSLA(String accountSLA) {
-        AccountSLA = accountSLA;
-    }
+        public void setAccountSLA (String accountSLA){
+            AccountSLA = accountSLA;
+        }
 
-    public void setBillingStreet(String billingStreet) {
-        BillingStreet = billingStreet;
-    }
+        public void setBillingStreet (String billingStreet){
+            BillingStreet = billingStreet;
+        }
 
-    public void setBillingCity(String billingCity) {
-        BillingCity = billingCity;
-    }
+        public void setBillingCity (String billingCity){
+            BillingCity = billingCity;
+        }
 
-    public void setBillingZip(String billingZip) {
-        BillingZip = billingZip;
-    }
+        public void setBillingZip (String billingZip){
+            BillingZip = billingZip;
+        }
 
 
-    public static WebElement getAccountTab() {
-        return AccountTab;
-    }
+        public static WebElement getAccountTab () {
+            return AccountTab;
+        }
 
-    public WebElement getAccountNameTitleField() {
-        return AccountNameTitleField;
-    }
-    public void HomePageClick(WebDriver driver){
-        Waffle.click();
-        SearchInput.sendKeys("Home");
-        HomePageRecord.click();
-    }
+        public WebElement getAccountNameTitleField () {
+            return AccountNameTitleField;
+        }
+        public void HomePageClick (WebDriver driver){
+            Waffle.click();
+            SearchInput.sendKeys("Home");
+            HomePageRecord.click();
+        }
 
-    public void setAccountTab(WebElement accountTab) {
-        AccountTab = accountTab;
+        public void setAccountTab (WebElement accountTab){
+            AccountTab = accountTab;
+        }
+        public WebElement getAccountTab (WebElement accountTab){
+            return AccountTab;
+        }
     }
-    public WebElement getAccountTab(WebElement accountTab){
-        return AccountTab;
-    }
-}
 
