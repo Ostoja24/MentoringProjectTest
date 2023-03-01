@@ -29,7 +29,7 @@ public class HomePageTest  extends BaseTest{
     public void login_and_check_page_title() throws FileNotFoundException {
         //Login to the environment
 
-        LoginPage loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage(driver);
         getCredentials();
         loginPage.navigateToLoginUrl(driver,getOrgURL());
         loginPage.LoginPageInit(driver);

@@ -1,5 +1,4 @@
 package PageObjects;
-import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver){
+
         super(driver);
     }
 
@@ -39,9 +39,8 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public SetupPage submit() {
+    public void submit() {
         loginButton.click();
-        return new SetupPage(driver);
     }
 
     public LoginPage putkeysUsername(String usernameValue) {

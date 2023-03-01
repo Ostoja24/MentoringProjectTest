@@ -2,6 +2,7 @@ package PageObjects;
 
 import org.json.JSONTokener;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,13 +11,15 @@ import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.List;
 
 public class AccountFormPage extends BasePage {
     public AccountFormPage(WebDriver driver){
         super(driver);
     }
     private final static String ACCOUNT_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\AccountsInfo.json";
+    private static double RandomNumber;
+
+    private String AccountTabURL = ""
     private String AccountName;
     private String AccountType;
     private String AccountRating;
@@ -47,7 +50,7 @@ public class AccountFormPage extends BasePage {
     @FindBy(xpath = xpathhomepagerecord)
     private WebElement HomePageRecord;
 
-    private static final String xpathaccountnewbutton = "//a[@id='Home']//b[contains(text(),'Home')]";
+    private static final String xpathaccountnewbutton = "//div[@title='New']";
     @FindBy(xpath = xpathaccountnewbutton)
     private WebElement AccountNewButton;
 
@@ -66,6 +69,10 @@ public class AccountFormPage extends BasePage {
     private static final String xpathaccountindustryfield = "//button[starts-with(@aria-label,'Industry')]";
     @FindBy(xpath = xpathaccountindustryfield)
     private WebElement AccountIndustryField;
+
+    private static final String xpathsaveaccountrecord = "//button[@name='SaveEdit']";
+    @FindBy(xpath = xpathsaveaccountrecord)
+    private WebElement SaveAccountRecord;
 
     @FindBy(id = "combobox-button-270")
     private WebElement AccountCustomerField;
@@ -93,7 +100,7 @@ public class AccountFormPage extends BasePage {
 
     private static final String xpathindustryagriculture = "//button[contains(text(),'-1-')]";
     @FindBy(xpath = xpathindustryagriculture)
-    private WebElement AccountIndustryField;
+    private WebElement AccountIndustryFieldRecord;
 
 
     public JSONTokener getAccountFormInfo() throws FileNotFoundException {
@@ -105,8 +112,9 @@ public class AccountFormPage extends BasePage {
     }
 
     public void AccountInfoJSON() throws FileNotFoundException {
+        RandomNumber = Math.random();
         JSONObject jsonAccount = new JSONObject(getAccountFormInfo());
-        AccountName = jsonAccount.getString("AccountName");
+        AccountName = jsonAccount.getString("AccountName") + RandomNumber;
         AccountType = jsonAccount.getString("AccountType");
         AccountIndustry = jsonAccount.getString("AccountIndustry");
         AccountCustomerPriority = jsonAccount.getString("AccountCustomerPriority");
@@ -125,7 +133,7 @@ public class AccountFormPage extends BasePage {
     }
 
     public void submitNewAccount(WebDriver driver) {
-
+        SaveAccountRecord.click();
 
     }
 
@@ -136,6 +144,8 @@ public class AccountFormPage extends BasePage {
     public String getAccountType() {
         return AccountType;
     }
+
+    public static double getRandomNumber() {return RandomNumber; }
 
     public String getAccountRating() {
         return AccountRating;
@@ -175,13 +185,10 @@ public class AccountFormPage extends BasePage {
 
     public void putkeysAccountIndustry(WebDriver driver, String AccountIndustry) {
         AccountIndustryField.click();
-        List<WebElement> list = driver.findElements(By.xpath("//button[contains(@aria-activedescdentant,'combobox')]"));
-        for (WebElement webElement : list) {
-            if (webElement.getText().contains(AccountIndustry)) {
-                webElement.click();
-            }
+        WebElement textelementAccountIndustry = driver.findElement(By.xpath("//button[@aria-label='Industry, --None--']//span[contains(text(),'--None--')]"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].textContent = 'Agriculture'", textelementAccountIndustry);
 
-        }}
+    }
         public void putkeysAccountCustomerPriority (String AccountCustomerPriority){
             AccountCustomerField.sendKeys(AccountCustomerPriority);
         }

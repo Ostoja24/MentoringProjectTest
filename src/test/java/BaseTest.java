@@ -28,6 +28,7 @@ public class BaseTest {
     private int implicitWaitValue = 20;
 
 
+
     @BeforeAll
     public static void setup_before_test() {
         // Starting WebDriver
@@ -41,7 +42,7 @@ public class BaseTest {
         if (getScreenMode().equals("1")) {
             options.addArguments("--headless", "--no-sandbox", "--disable-gpu", "--windows-size=1920,1040", "allow-silent-push", "--disable-notifications");
         } else {
-            options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized", "allow-silent-push");
+            options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized", "allow-silent-push","--disable-notifications");
         }
         driver = new ChromeDriver(options);
 
