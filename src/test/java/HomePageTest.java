@@ -1,43 +1,27 @@
 import PageObjects.LoginPage;
-import com.fasterxml.jackson.databind.ser.Serializers;
-import org.junit.Assert;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Set;
+
 
 public class HomePageTest  extends BaseTest{
 
 
-    private WebElement element;
-    private WebElement PageTitle;
-
-    public WebElement getElement() {
-        return element;
-    }
-
-
     @Test
+    @Epic("Login Page")
+    @Feature("1. Login to Org")
     public void login_and_check_page_title() throws FileNotFoundException {
         //Login to the environment
-
         LoginPage loginPage = new LoginPage(driver);
         getCredentials();
         loginPage.navigateToLoginUrl(driver,getOrgURL());
-        loginPage.LoginPageInit(driver);
-        String usernamevalue_login = getUsernameAdmin();
-        String passwordvalue_login = getPasswordAdmin();
-        loginPage.putkeysUsername(usernamevalue_login);
-        loginPage.putkeysPassword(passwordvalue_login);
-        loginPage.submit();
+        String usernamevaluelogin = getUsernameAdmin();
+        String passwordvaluelogin = getPasswordAdmin();
+        loginPage.putkeysUsername(usernamevaluelogin);
+        loginPage.putkeysPassword(passwordvaluelogin);
+        loginPage.submitLoginButton();
         //Assertion that loaded page is appriopriate
         Assertions.assertTrue(loginPage.returnPagetitle(driver).contains("lightning/setup/SetupOneHome/home"));
 

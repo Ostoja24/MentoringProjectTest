@@ -7,5 +7,6 @@
   "AccountSLA":"Bronze",
   "BillingStreet": "Toruńska",
   "BillingCity": "Toruń",
-  "BillingZip": "87-100"
+  "BillingZip": "87-100",
+  "AccountRecordsURL": "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com/lightning/o/Account/home"
 }

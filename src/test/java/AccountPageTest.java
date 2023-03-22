@@ -1,8 +1,8 @@
 import PageObjects.*;
+import data.DataClass;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebElement;
 
 import java.io.FileNotFoundException;
 
@@ -17,43 +17,39 @@ public class AccountPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         AccountFormPage accountPage = new AccountFormPage(driver);
         SetupPage setupPage = new SetupPage(driver);
-        HomePage homepage = new HomePage(driver);
+        DataClass dataclass = new DataClass();
         getCredentials();
-        loginPage.navigateToLoginUrl(driver,getOrgURL());
-        implicitwaittest(driver);
-        loginPage.LoginPageInit(driver);
         String usernamevalue_login = getUsernameAdmin();
         String passwordvalue_login = getPasswordAdmin();
+        loginPage.navigateToLoginUrl(driver,getOrgURL());
         loginPage.putkeysUsername(usernamevalue_login)
-        .putkeysPassword(passwordvalue_login)
-        .submit();
-        accountPage.getAccountFormInfo();
-        accountPage.AccountInfoJSON();
-        setupPage.HomePageClick();
-        homepage.HomePageInit();
-//        explicitwaittest(driver,"//span[normalize-space()='Accounts']");
-//        homepage.AccountTabClick(driver);
-        accountPage.AccountPageInit(driver);
+                .putkeysPassword(passwordvalue_login)
+                .submitLoginButton();
+        dataclass.getAccountFormInfo();
+        dataclass.AccountInfoJSON();
+        setupPage.homePageClicktoAccounts();
+        String accountIndustryValue = dataclass.getAccountIndustry();
+        String accountNameValue = dataclass.getAccountName();
+        String accountRatingValue = dataclass.getAccountRating();
+        String accountSLAValue = dataclass.getAccountSLA();
+        String accountCustomerPriorityValue = dataclass.getAccountCustomerPriority();
+        String accountTypeValue = dataclass.getAccountType();
+        String billingCityValue = dataclass.getBillingCity();
+        String billingZipValue = dataclass.getBillingZip();
+        String billingStreetValue = dataclass.getBillingStreet();
         accountPage.newAccountForm(driver);
-        String AccountIndustryValue = accountPage.getAccountIndustry();
-        String AccountNameValue = accountPage.getAccountName();
-        String AccountRatingValue = accountPage.getAccountRating();
-        String AccountSLAValue = accountPage.getAccountSLA();
-        String AccountCustomerPriorityValue = accountPage.getAccountCustomerPriority();
-        String BillingCityValue = accountPage.getBillingCity();
-        accountPage.putkeysAccountName(AccountNameValue);
-        accountPage.putkeysAccountIndustry(driver,AccountIndustryValue);
-        accountPage.putkeysBillingCity(BillingCityValue);
-        accountPage.submitNewAccount(driver);
-        WebElement AccountTitleValue = accountPage.getAccountNameTitleField();
-        Assertions.assertEquals("TestAccount" + AccountFormPage.getRandomNumber(), AccountTitleValue.getText());
-    }
-    @Test()
-    public void EditAddedAccount(){
-        AccountFormPage accountPage = new AccountFormPage(driver);
-        implicitwaittest(driver);
-
-
-
+        accountPage.putkeysAccountName(accountNameValue)
+                .putkeysAccountType(accountTypeValue)
+                .putkeysAccountIndustry(accountIndustryValue)
+                .putkeysAccountRatingValue(accountRatingValue)
+                .putkeysBillingCity(billingCityValue)
+                .putkeysBillingZipValue(billingZipValue)
+                .putkeysBillingStreet(billingStreetValue)
+                .putkeysSLAValue(accountSLAValue)
+                .putkeysAccountCustomerPriority(accountCustomerPriorityValue)
+                .submitNewAccount(driver);
+        String AccountTitleValue = accountPage.getAccountNameTitleField();
+        // Assertions that created record is saved
+        Assertions.assertEquals(accountNameValue, AccountTitleValue);
     }
 }

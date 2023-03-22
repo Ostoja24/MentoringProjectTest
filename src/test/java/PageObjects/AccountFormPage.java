@@ -1,265 +1,116 @@
 package PageObjects;
 
-import org.json.JSONTokener;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import data.DataClass;
+import org.openqa.selenium.*;
 import org.json.JSONObject;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 
 public class AccountFormPage extends BasePage {
-    public AccountFormPage(WebDriver driver){
+
+    private final By accountIndustryField = By.xpath("//label[text()='Industry']/..//button[@role='combobox']");
+    private final By accounttab = By.xpath("//span[normalize-space()='Accounts']");
+    private final By accountnamelement = By.xpath("//input[@name='Name']");
+    private final By accounttypefield = By.xpath("//label[text()='Type']/..//button[@role='combobox']");
+    private final By accountNameTitle = By.xpath("//lightning-formatted-text[@class='custom-truncate']");
+    private String accountTypefield = "//lightning-base-combobox-item[@data-value='<typeName>']";
+    private String accountIndustryPicklistOption = "//lightning-base-combobox-item[@data-value='<industryName>']";
+    private String accountPriorityPicklistOption = "//lightning-base-combobox-item[@data-value='<priorityName>']";
+    private String accountRatingPicklistOption = "//lightning-base-combobox-item[@data-value='<ratingName>']";
+    private String accountSLAPicklistOption = "//lightning-base-combobox-item[@data-value='<SLAName>']";
+    private String AccountRecordURL;
+    private final By accountCustomerField = By.xpath("//label[text()='Customer Priority']/..//button[@role='combobox']");
+    private final By billingZipfield = By.xpath("//label[text()='Billing Zip/Postal Code']/..//input[@name='postalCode']");
+    private final By SaveAccountRecord = By.xpath("//button[@name='SaveEdit']");
+    private final By accountRatingField = By.xpath("//label[text()='Rating']/..//button[@role='combobox']");
+
+    private final By accountNewButton = By.xpath("//div[@title='New']");
+    private final By billingStreetField = By.xpath("//records-record-layout-item[@field-label='Billing Address']//textarea[@name='street']");
+    private final By billingCityField = By.xpath("//label[text()='Billing City']/..//input[@name='city']");
+    private final By accountSLAField = By.xpath("//label[text()='SLA']/..//button[@role='combobox']");
+    public AccountFormPage(WebDriver driver) {
         super(driver);
     }
-    private final static String ACCOUNT_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\AccountsInfo.json";
     private static double RandomNumber;
 
-    private String AccountTabURL = ""
-    private String AccountName;
-    private String AccountType;
-    private String AccountRating;
-    private String AccountIndustry;
-    private String AccountCustomerPriority;
-    private String AccountSLA;
-    private String BillingStreet;
-    private String BillingCity;
-    private String BillingZip;
 
-    private static final String xpathaccounttab = "//span[normalize-space()='Accounts']";
-    @FindBy(xpath = xpathaccounttab)
-    private static WebElement AccountTab;
-
-    private static final String xpathhomepage = "//a[@class='tabHeader slds-context-bar__label-action ']//span[@class='title slds-truncate'][normalize-space()='Home']";
-    @FindBy(xpath = xpathhomepage)
-    private WebElement HomePage;
-
-    private static final String xpathwaffle = "//div[@class='slds-icon-waffle']";
-    @FindBy(xpath = xpathwaffle)
-    private WebElement Waffle;
-
-    private static final String xpathsearchinput = "//input[@class='slds-input']";
-    @FindBy(xpath = xpathsearchinput)
-    private WebElement SearchInput;
-
-    private static final String xpathhomepagerecord = "//a[@id='Home']//b[contains(text(),'Home')]";
-    @FindBy(xpath = xpathhomepagerecord)
-    private WebElement HomePageRecord;
-
-    private static final String xpathaccountnewbutton = "//div[@title='New']";
-    @FindBy(xpath = xpathaccountnewbutton)
-    private WebElement AccountNewButton;
-
-    private static final String xpathaccountnamelement = "//input[@name='Name']";
-    @FindBy(xpath = xpathaccountnamelement)
-    private WebElement AccountNameElement;
-
-    private static final String xpathaccounttypefield = "//*[@id='combobox-button-216']";
-    @FindBy(xpath = xpathaccounttypefield)
-    private WebElement AccountTypeField;
-
-    private static final String xpathaccountratingfield = "//*[@id='combobox-button-183']";
-    @FindBy(xpath = xpathaccountratingfield)
-    private WebElement AccountRatingField;
-
-    private static final String xpathaccountindustryfield = "//button[starts-with(@aria-label,'Industry')]";
-    @FindBy(xpath = xpathaccountindustryfield)
-    private WebElement AccountIndustryField;
-
-    private static final String xpathsaveaccountrecord = "//button[@name='SaveEdit']";
-    @FindBy(xpath = xpathsaveaccountrecord)
-    private WebElement SaveAccountRecord;
-
-    @FindBy(id = "combobox-button-270")
-    private WebElement AccountCustomerField;
-
-    @FindBy(id = "combobox-button-278")
-    private WebElement AccountSLAField;
-    private static final String xpathbillingstreetfield = "//records-record-layout-item[@field-label='Billing Address']//textarea[@name='street']";
-    @FindBy(xpath = xpathbillingstreetfield)
-    private WebElement BillingStreetField;
-    private static final String xpathbillingcityfield = "//records-record-layout-item[@field-label='Billing Address']//input[@name='city']";
-    @FindBy(xpath = xpathbillingcityfield)
-    private WebElement BillingCityField;
-
-    private static final String xpathbillingzipfield = "//records-record-layout-item[@field-label='Billing Address']//input[@name='postalCode']";
-    @FindBy(xpath = xpathbillingzipfield)
-    private WebElement BillingZipField;
-    private static final String xpathsaveaccountrecordbutton = "//button[@name='SaveEdit']";
-
-    @FindBy(xpath = xpathsaveaccountrecordbutton)
-    private WebElement SaveAccountRecordButton;
-
-    private static final String xpathaccountnametitlefield = "//lightning-formatted-text[@class='custom-truncate']";
-    @FindBy(xpath = xpathaccountnametitlefield)
-    private WebElement AccountNameTitleField;
-
-    private static final String xpathindustryagriculture = "//button[contains(text(),'-1-')]";
-    @FindBy(xpath = xpathindustryagriculture)
-    private WebElement AccountIndustryFieldRecord;
-
-
-    public JSONTokener getAccountFormInfo() throws FileNotFoundException {
-        return new JSONTokener(new FileReader(ACCOUNT_INFORMATION));
-    }
-
-    public void AccountPageInit(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
-
-    public void AccountInfoJSON() throws FileNotFoundException {
-        RandomNumber = Math.random();
-        JSONObject jsonAccount = new JSONObject(getAccountFormInfo());
-        AccountName = jsonAccount.getString("AccountName") + RandomNumber;
-        AccountType = jsonAccount.getString("AccountType");
-        AccountIndustry = jsonAccount.getString("AccountIndustry");
-        AccountCustomerPriority = jsonAccount.getString("AccountCustomerPriority");
-        AccountSLA = jsonAccount.getString("AccountSLA");
-        BillingStreet = jsonAccount.getString("BillingStreet");
-        BillingCity = jsonAccount.getString("BillingCity");
-        BillingZip = jsonAccount.getString("BillingZip");
+    public String AccountURLJSON() throws FileNotFoundException {
+        DataClass dataclass = new DataClass();
+        JSONObject jsonURLAccount = new JSONObject(dataclass.getAccountFormInfo());
+        AccountRecordURL = jsonURLAccount.getString("AccountRecordsURL");
+        return AccountRecordURL;
     }
 
 
-    public void newAccountForm(WebDriver driver) {
-        AccountNewButton.click();
+    public AccountFormPage newAccountForm(WebDriver driver) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountNewButton)).click();
+        return this;
     }
 
-    public void editSavedAccount(WebDriver driver) {
+
+    public AccountFormPage submitNewAccount(WebDriver driver) {
+        driver.findElement(SaveAccountRecord).click();
+        return this;
     }
 
-    public void submitNewAccount(WebDriver driver) {
-        SaveAccountRecord.click();
-
+    public AccountFormPage putkeysAccountName(String accountName) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountnamelement)).sendKeys(accountName);
+        return this;
     }
 
-    public String getAccountName() {
-        return AccountName;
+    public AccountFormPage putkeysAccountType(String AccountType) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accounttypefield)).click();
+        String accountTypeOptionXpath = accountTypefield.replace("<typeName>", AccountType);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountTypeOptionXpath))).click();
+        return this;
     }
 
-    public String getAccountType() {
-        return AccountType;
+    public AccountFormPage putkeysAccountIndustry(String AccountIndustry) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountIndustryField)).click();
+        String accountIndustryOptionXpath = accountIndustryPicklistOption.replace("<industryName>", AccountIndustry);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountIndustryOptionXpath))).click();
+        return this;
     }
 
-    public static double getRandomNumber() {return RandomNumber; }
-
-    public String getAccountRating() {
-        return AccountRating;
+    public AccountFormPage putkeysAccountCustomerPriority(String AccountCustomerPriority) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountCustomerField)).click();
+        String accountPriorityOptionXpath = accountPriorityPicklistOption.replace("<priorityName>", AccountCustomerPriority);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountPriorityOptionXpath))).click();
+        return this;
     }
 
-    public String getAccountIndustry() {
-        return AccountIndustry;
+    public AccountFormPage putkeysBillingStreet(String BillingStreet) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(billingStreetField)).sendKeys(BillingStreet);
+        return this;
     }
 
-    public String getAccountCustomerPriority() {
-        return AccountCustomerPriority;
+    public AccountFormPage putkeysBillingCity(String BillingCity) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(billingCityField)).sendKeys(BillingCity);
+        return this;
     }
 
-    public String getAccountSLA() {
-        return AccountSLA;
+    public AccountFormPage putkeysAccountRatingValue(String accountRatingValue) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountRatingField)).click();
+        String accountRatingOptionXpath = accountRatingPicklistOption.replace("<ratingName>", accountRatingValue);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOptionXpath))).click();
+        return this;
     }
 
-    public String getBillingStreet() {
-        return BillingStreet;
+    public AccountFormPage putkeysBillingZipValue(String billingZipValue) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(billingZipfield)).sendKeys(billingZipValue);
+        return this;
     }
 
-    public String getBillingCity() {
-        return BillingCity;
+    public AccountFormPage putkeysSLAValue(String accountSLAValue) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountSLAField)).click();
+        String accountRatingOptionXpath = accountSLAPicklistOption.replace("<SLAName>", accountSLAValue);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOptionXpath))).click();
+        return this;
     }
-
-    public String getBillingZip() {
-        return BillingZip;
+    public String getAccountNameTitleField(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(accountNameTitle)).getText();
     }
+}
 
-    public void putkeysAccountName(String AccountName) {
-        AccountNameElement.sendKeys(AccountName);
-    }
-
-    public void putkeysAccountType(String AccountType) {
-        AccountTypeField.sendKeys(AccountType);
-    }
-
-    public void putkeysAccountIndustry(WebDriver driver, String AccountIndustry) {
-        AccountIndustryField.click();
-        WebElement textelementAccountIndustry = driver.findElement(By.xpath("//button[@aria-label='Industry, --None--']//span[contains(text(),'--None--')]"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].textContent = 'Agriculture'", textelementAccountIndustry);
-
-    }
-        public void putkeysAccountCustomerPriority (String AccountCustomerPriority){
-            AccountCustomerField.sendKeys(AccountCustomerPriority);
-        }
-
-        public void putkeysBillingStreet (String BillingStreet){
-            BillingStreetField.sendKeys(BillingStreet);
-        }
-
-        public void putkeysBillingCity (String BillingCity){
-            BillingCityField.sendKeys(BillingCity);
-        }
-
-        public void putkeysBillingZip (String BillingZip){
-            BillingZipField.sendKeys(BillingZip);
-        }
-
-        public void setAccountName (String accountName){
-            AccountName = accountName;
-        }
-
-        public void setAccountType (String accountType){
-            AccountType = accountType;
-        }
-
-        public void setAccountRating (String accountRating){
-            AccountRating = accountRating;
-        }
-
-        public void setAccountIndustry (String accountIndustry){
-            AccountIndustry = accountIndustry;
-        }
-
-        public void setAccountCustomerPriority (String accountCustomerPriority){
-            AccountCustomerPriority = accountCustomerPriority;
-        }
-
-        public void setAccountSLA (String accountSLA){
-            AccountSLA = accountSLA;
-        }
-
-        public void setBillingStreet (String billingStreet){
-            BillingStreet = billingStreet;
-        }
-
-        public void setBillingCity (String billingCity){
-            BillingCity = billingCity;
-        }
-
-        public void setBillingZip (String billingZip){
-            BillingZip = billingZip;
-        }
-
-
-        public static WebElement getAccountTab () {
-            return AccountTab;
-        }
-
-        public WebElement getAccountNameTitleField () {
-            return AccountNameTitleField;
-        }
-        public void HomePageClick (WebDriver driver){
-            Waffle.click();
-            SearchInput.sendKeys("Home");
-            HomePageRecord.click();
-        }
-
-        public void setAccountTab (WebElement accountTab){
-            AccountTab = accountTab;
-        }
-        public WebElement getAccountTab (WebElement accountTab){
-            return AccountTab;
-        }
-    }
 
