@@ -16,7 +16,7 @@ public class AccountPageTest extends BaseTest {
     public void newAccount () throws FileNotFoundException {
         LoginPage loginPage = new LoginPage(driver);
         AccountFormPage accountPage = new AccountFormPage(driver);
-        SetupPage setupPage = new SetupPage(driver);
+        SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
         DataClass dataclass = new DataClass();
         getCredentials();
         String usernamevalue_login = getUsernameAdmin();
@@ -25,9 +25,8 @@ public class AccountPageTest extends BaseTest {
         loginPage.putkeysUsername(usernamevalue_login)
                 .putkeysPassword(passwordvalue_login)
                 .submitLoginButton();
-        dataclass.getAccountFormInfo();
-        dataclass.AccountInfoJSON();
-        setupPage.homePageClicktoAccounts();
+        dataclass.AccountInfoJSON("C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\AccountsInfo.json");
+        sfPage.homePageClicktoAccounts();
         String accountIndustryValue = dataclass.getAccountIndustry();
         String accountNameValue = dataclass.getAccountName();
         String accountRatingValue = dataclass.getAccountRating();
@@ -37,7 +36,7 @@ public class AccountPageTest extends BaseTest {
         String billingCityValue = dataclass.getBillingCity();
         String billingZipValue = dataclass.getBillingZip();
         String billingStreetValue = dataclass.getBillingStreet();
-        accountPage.newAccountForm(driver);
+        accountPage.newAccountForm();
         accountPage.putkeysAccountName(accountNameValue)
                 .putkeysAccountType(accountTypeValue)
                 .putkeysAccountIndustry(accountIndustryValue)
@@ -50,6 +49,7 @@ public class AccountPageTest extends BaseTest {
                 .submitNewAccount(driver);
         String AccountTitleValue = accountPage.getAccountNameTitleField();
         // Assertions that created record is saved
+        Assertions.assertEquals(accountPage.accountToastText(),AccountTitleValue);
         Assertions.assertEquals(accountNameValue, AccountTitleValue);
     }
 }

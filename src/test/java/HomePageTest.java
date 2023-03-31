@@ -17,10 +17,10 @@ public class HomePageTest  extends BaseTest{
         LoginPage loginPage = new LoginPage(driver);
         getCredentials();
         loginPage.navigateToLoginUrl(driver,getOrgURL());
-        String usernamevaluelogin = getUsernameAdmin();
-        String passwordvaluelogin = getPasswordAdmin();
-        loginPage.putkeysUsername(usernamevaluelogin);
-        loginPage.putkeysPassword(passwordvaluelogin);
+        String usernameValueLogin = getUsernameAdmin();
+        String passwordValueLogin = getPasswordAdmin();
+        loginPage.putkeysUsername(usernameValueLogin);
+        loginPage.putkeysPassword(passwordValueLogin);
         loginPage.submitLoginButton();
         //Assertion that loaded page is appriopriate
         Assertions.assertTrue(loginPage.returnPagetitle(driver).contains("lightning/setup/SetupOneHome/home"));

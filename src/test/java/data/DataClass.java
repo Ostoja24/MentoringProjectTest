@@ -20,10 +20,10 @@ public class DataClass {
     private String AccountRating;
     private final static String ACCOUNT_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\AccountsInfo.json";
 
-    public void AccountInfoJSON() throws FileNotFoundException {
+    public void AccountInfoJSON(String ACCOUNT_INFORMATION) throws FileNotFoundException {
         RandomNumber = Math.random();
-        JSONObject jsonAccount = new JSONObject(getAccountFormInfo());
-        AccountName = jsonAccount.getString("AccountName") + RandomNumber;
+        JSONObject jsonAccount = new JSONObject(getAccountFormInfo(ACCOUNT_INFORMATION));
+        AccountName = jsonAccount.getString("AccountName");
         AccountType = jsonAccount.getString("AccountType");
         AccountIndustry = jsonAccount.getString("AccountIndustry");
         AccountCustomerPriority = jsonAccount.getString("AccountCustomerPriority");
@@ -73,7 +73,7 @@ public class DataClass {
         return BillingZip;
     }
 
-    public JSONTokener getAccountFormInfo() throws FileNotFoundException {
+    public JSONTokener getAccountFormInfo(String ACCOUNT_INFORMATION) throws FileNotFoundException {
         return new JSONTokener(new FileReader(ACCOUNT_INFORMATION));
     }
 

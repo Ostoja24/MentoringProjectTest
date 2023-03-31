@@ -29,21 +29,23 @@ public class AccountFormPage extends BasePage {
     private final By billingStreetField = By.xpath("//records-record-layout-item[@field-label='Billing Address']//textarea[@name='street']");
     private final By billingCityField = By.xpath("//label[text()='Billing City']/..//input[@name='city']");
     private final By accountSLAField = By.xpath("//label[text()='SLA']/..//button[@role='combobox']");
+    private final By forceVisualMessageQueue = By.xpath("//div[@class='forceVisualMessageQueue'/..//button[class='forceActionLink']");
+    private final By accountPhoneNumber = By.xpath("//label[text()='Phone']/..//input[@name='Phone']");
     public AccountFormPage(WebDriver driver) {
         super(driver);
     }
     private static double RandomNumber;
 
 
-    public String AccountURLJSON() throws FileNotFoundException {
+    public String AccountURLJSON(String ACCOUNT_INFORMATION) throws FileNotFoundException {
         DataClass dataclass = new DataClass();
-        JSONObject jsonURLAccount = new JSONObject(dataclass.getAccountFormInfo());
+        JSONObject jsonURLAccount = new JSONObject(dataclass.getAccountFormInfo(ACCOUNT_INFORMATION));
         AccountRecordURL = jsonURLAccount.getString("AccountRecordsURL");
         return AccountRecordURL;
     }
 
 
-    public AccountFormPage newAccountForm(WebDriver driver) {
+    public AccountFormPage newAccountForm() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountNewButton)).click();
         return this;
     }
@@ -108,8 +110,16 @@ public class AccountFormPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOptionXpath))).click();
         return this;
     }
+    public AccountFormPage putkeysPhoneNumber(String accountPhoneNumberValue) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountPhoneNumber)).sendKeys(accountPhoneNumberValue);
+        return this;
+    }
     public String getAccountNameTitleField(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(accountNameTitle)).getText();
+    }
+
+    public String accountToastText(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(forceVisualMessageQueue)).getText();
     }
 }
 
