@@ -46,7 +46,7 @@ public class AccountPageTest extends BaseTest {
                 .putkeysBillingStreet(billingStreetValue)
                 .putkeysSLAValue(accountSLAValue)
                 .putkeysAccountCustomerPriority(accountCustomerPriorityValue)
-                .submitNewAccount(driver);
+                .submitNewAccount();
         String AccountTitleValue = accountPage.getAccountNameTitleField();
         // Assertions that created record is saved
         Assertions.assertEquals(accountPage.accountToastText(),AccountTitleValue);

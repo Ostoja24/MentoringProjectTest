@@ -15,6 +15,10 @@ public class DataClass {
     private String BillingStreet;
     private String BillingCity;
     private String BillingZip;
+    private String ShippingCity;
+    private String ShippingStreet;
+    private String ShippingZip;
+    private String DescriptionValue;
     private double RandomNumber;
 
     private String AccountRating;
@@ -32,6 +36,10 @@ public class DataClass {
         BillingStreet = jsonAccount.getString("BillingStreet");
         BillingCity = jsonAccount.getString("BillingCity");
         BillingZip = jsonAccount.getString("BillingZip");
+        ShippingCity = jsonAccount.getString("ShippingCity");
+        ShippingStreet = jsonAccount.getString("ShippingStreet");
+        ShippingZip = jsonAccount.getString("ShippingZip");
+        DescriptionValue = jsonAccount.getString("Description");
     }
     public String getAccountName() {
         return AccountName;
@@ -77,4 +85,16 @@ public class DataClass {
         return new JSONTokener(new FileReader(ACCOUNT_INFORMATION));
     }
 
+    public String getShippingCity() { return ShippingCity;
+    }
+
+    public String getShippingStreet() { return ShippingStreet;
+    }
+    public String getShippingZip(){
+        return ShippingZip;
+    }
+
+    public String getDescription() {
+        return DescriptionValue;
+    }
 }

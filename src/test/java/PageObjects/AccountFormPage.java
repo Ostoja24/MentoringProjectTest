@@ -29,8 +29,12 @@ public class AccountFormPage extends BasePage {
     private final By billingStreetField = By.xpath("//records-record-layout-item[@field-label='Billing Address']//textarea[@name='street']");
     private final By billingCityField = By.xpath("//label[text()='Billing City']/..//input[@name='city']");
     private final By accountSLAField = By.xpath("//label[text()='SLA']/..//button[@role='combobox']");
-    private final By forceVisualMessageQueue = By.xpath("//div[@class='forceVisualMessageQueue'/..//button[class='forceActionLink']");
+    private final By forceVisualMessageQueue = By.xpath("//div[@class='forceVisualMessageQueue']/..//span[@data-aura-class='forceActionsText']");
     private final By accountPhoneNumber = By.xpath("//label[text()='Phone']/..//input[@name='Phone']");
+    private final By shippingStreetField = By.xpath("//label[text()='Shipping Street']/..//textarea[@name='street']");
+    private final By shippingCityField = By.xpath("//label[text()='Shipping City']/..//input[@name='city']");
+    private final By shippingZipfield = By.xpath("//label[text()='Shipping Zip/Postal Code']/..//input[@name='postalCode']");
+    private final By descriptionfield = By.xpath("//label[text()='Description']/..//textarea[@class='slds-textarea']");
     public AccountFormPage(WebDriver driver) {
         super(driver);
     }
@@ -51,7 +55,7 @@ public class AccountFormPage extends BasePage {
     }
 
 
-    public AccountFormPage submitNewAccount(WebDriver driver) {
+    public AccountFormPage submitNewAccount() {
         driver.findElement(SaveAccountRecord).click();
         return this;
     }
@@ -121,6 +125,25 @@ public class AccountFormPage extends BasePage {
     public String accountToastText(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(forceVisualMessageQueue)).getText();
     }
+    public AccountFormPage putkeysShippingStreet(String shippingStreet) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(shippingStreetField)).sendKeys(shippingStreet);
+        return this;
+    }
+
+    public AccountFormPage putkeysShippingCity(String shippingCity) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(shippingCityField)).sendKeys(shippingCity);
+        return this;
+    }
+
+    public AccountFormPage putkeysShippingZip(String ShippingZipValue) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(shippingZipfield)).sendKeys(ShippingZipValue);
+        return this;
+    }
+    public AccountFormPage putDescription(String DescriptionValue){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(descriptionfield)).sendKeys(DescriptionValue);
+        return this;
+    }
+
 }
 
 

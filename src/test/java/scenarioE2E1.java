@@ -4,9 +4,12 @@ import PageObjects.SalesforcePageHeader;
 import data.DataClass;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -37,7 +40,32 @@ public class scenarioE2E1 extends BaseTest {
         String randomNumbers = new Random().ints(5, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
         String accountPhone = new Random().ints(9, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
         String accountNameValue = dataclass.getAccountName() + randomNumbers;
-        accountPage.putkeysAccountName(accountNameValue);
-        accountPage.putkeysPhoneNumber(accountPhone);
+        String accountTypeValue = dataclass.getAccountType();
+        String accountBillingStreetValue = dataclass.getBillingStreet();
+        String accountBillingCityValue = dataclass.getBillingCity();
+        String accountBillingZipValue = dataclass.getBillingZip();
+        String accountShippingCityValue = dataclass.getShippingCity();
+        String accountShippingStreetValue = dataclass.getShippingStreet();
+        String accountShippingZipValue = dataclass.getShippingZip();
+        String accountSLAValue = dataclass.getAccountSLA();
+        String accountDescriptionValue = dataclass.getDescription() + LocalDate.now();
+        accountPage.putkeysAccountName(accountNameValue)
+                .putkeysPhoneNumber(accountPhone)
+                .putkeysAccountType(accountTypeValue)
+                .putkeysBillingStreet(accountBillingStreetValue)
+                .putkeysBillingCity(accountBillingCityValue)
+                .putkeysBillingZipValue(accountBillingZipValue)
+                .putkeysShippingCity(accountShippingCityValue)
+                .putkeysShippingStreet(accountShippingStreetValue)
+                .putkeysShippingZip(accountShippingZipValue)
+                .putkeysSLAValue(accountSLAValue)
+                .putDescription(accountDescriptionValue)
+                .submitNewAccount();
+        Assertions.assertEquals("Account " + '"' + accountNameValue + '"' + " was created.",accountPage.accountToastText());
+
+
+
+
+
     }
 }
