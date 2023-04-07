@@ -12,9 +12,9 @@ public class BaseTest {
     // Variables used in Test Project
 
     private final static String ORG_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\data_login.json";
-    private String usernameAdmin;
-    private String passwordAdmin;
-    private String orgURL;
+    private String usernameAdmin = "tomasz.ostojski@playful-bear-v3w7c0.com";
+    private String passwordAdmin = "7513328D516D673AE189B9ECE5C9E10A";
+    private String orgURL = "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com";
     private String screenMode;
     private final int implicitWaitValue = 20;
     protected static WebDriver driver;

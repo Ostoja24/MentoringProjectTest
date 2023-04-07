@@ -10,8 +10,19 @@ public class AccountPageTest extends BaseTest {
     public AccountPageTest () {
         super();
     }
+    String usernamevalue_login = getUsernameAdmin();
+    String passwordvalue_login = getPasswordAdmin();
     @Epic("Accounts")
     @Feature("1. Creating New Account")
+    @Test()
+    public void logintoOrg(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.navigateToLoginUrl(driver,getOrgURL());
+        loginPage.putkeysUsername(usernamevalue_login)
+            .putkeysPassword(passwordvalue_login)
+                .submitLoginButton();
+    }
+
     @Test()
     public void newAccount () throws FileNotFoundException {
         LoginPage loginPage = new LoginPage(driver);
@@ -19,14 +30,8 @@ public class AccountPageTest extends BaseTest {
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
         DataClass dataclass = new DataClass();
         getCredentials();
-        String usernamevalue_login = getUsernameAdmin();
-        String passwordvalue_login = getPasswordAdmin();
-        loginPage.navigateToLoginUrl(driver,getOrgURL());
-        loginPage.putkeysUsername(usernamevalue_login)
-                .putkeysPassword(passwordvalue_login)
-                .submitLoginButton();
+        sfPage.homePageClickToAccounts();
         dataclass.AccountInfoJSON("C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\AccountsInfo.json");
-        sfPage.homePageClicktoAccounts();
         String accountIndustryValue = dataclass.getAccountIndustry();
         String accountNameValue = dataclass.getAccountName();
         String accountRatingValue = dataclass.getAccountRating();

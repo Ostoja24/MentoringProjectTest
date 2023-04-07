@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="New changes and fixes">
-      <change afterPath="$PROJECT_DIR$/src/test/java/data/DataClass.java" afterDir="false" />
+    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Scenario Mentoring Writing Script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/0057327d-ca74-4327-82ee-800a66384261-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/0607bf2d-fafb-4f59-8c84-589cea0c62e9-container.json" beforeDir="false" />
@@ -38,7 +37,6 @@
       <change beforePath="$PROJECT_DIR$/allure-results/58e885a7-b980-469a-9caa-b5df3027e5e7-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/689653d4-6f89-4f4d-8f92-aa9f0e33dde9-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/6f066a87-6b58-49cf-a859-2c98f2e73e92-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allure-results/6fad295f-e7c3-455c-bf2f-914b4337496d-result.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/73fca6ab-dc63-477a-9821-026646aab0d6-result.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/7577c957-5e6d-469f-89b3-e1c0dcf07278-result.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/7c3e2812-9fe3-4904-87a4-56cf1b62c847-result.json" beforeDir="false" />
@@ -80,18 +78,12 @@
       <change beforePath="$PROJECT_DIR$/allure-results/f66bdbaf-489f-47bf-8a44-dd45e1b374a5-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/fbc46477-761c-44b6-aa2f-52cfc8f08b5f-result.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allure-results/fe24e8ba-e15a-45e4-982a-e5b54c87aae6-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AccountPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AccountPageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HomePageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HomePageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/Accounts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/SetupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/SetupPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/data/AccountsInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/AccountsInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/e2e/e2eaddAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/data/AccountScenarionInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/AccountScenarionInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,21 +149,12 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HomePageTest">
-    <configuration name="AccountPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.scenarioE2E1">
+    <configuration name="AccountPageTest.logintoOrg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AccountPageTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountPageTest.newAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MentoringProjectTest" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AccountPageTest" />
-      <option name="METHOD_NAME" value="newAccount" />
+      <option name="METHOD_NAME" value="logintoOrg" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -186,21 +169,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomePageTest.login_and_check_page_title (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="scenarioE2E1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HomePageTest" />
-      <option name="METHOD_NAME" value="login_and_check_page_title(org.openqa.selenium.WebDriver)" />
+      <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="scenarioE2E1.logintoOrg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MentoringProjectTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
+      <option name="METHOD_NAME" value="logintoOrg" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomePageTest.login_and_check_page_title" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="scenarioE2E1.scenarioAccountsCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HomePageTest" />
-      <option name="METHOD_NAME" value="login_and_check_page_title" />
+      <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
+      <option name="METHOD_NAME" value="scenarioAccountsCreation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -208,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.scenarioE2E1" />
+        <item itemvalue="JUnit.scenarioE2E1.scenarioAccountsCreation" />
+        <item itemvalue="JUnit.scenarioE2E1.logintoOrg" />
+        <item itemvalue="JUnit.AccountPageTest.logintoOrg" />
         <item itemvalue="JUnit.HomePageTest" />
-        <item itemvalue="JUnit.AccountPageTest.newAccount" />
-        <item itemvalue="JUnit.AccountPageTest" />
-        <item itemvalue="JUnit.HomePageTest.login_and_check_page_title" />
-        <item itemvalue="JUnit.HomePageTest.login_and_check_page_title (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -281,7 +273,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677677293437</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="New changes and fixes">
+      <created>1679488474405</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679488474406</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add Scenario and fixed">
+      <created>1680270807280</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680270807280</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Scenario Mentoring Writing Script">
+      <created>1680358773338</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680358773338</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,7 +302,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -299,7 +324,9 @@
     <MESSAGE value="Creating Base Test and First Class to Test Project" />
     <MESSAGE value="Base Test Class changes" />
     <MESSAGE value="New changes and fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="New changes and fixes" />
+    <MESSAGE value="Add Scenario and fixed" />
+    <MESSAGE value="Scenario Mentoring Writing Script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scenario Mentoring Writing Script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -310,7 +337,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java</url>
-          <line>36</line>
+          <line>34</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

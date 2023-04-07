@@ -16,8 +16,9 @@ public class LoginPage extends BasePage {
     private final By homeButton = By.xpath("//a[@class='tabHeader slds-context-bar__label-action ']//span[@class='title slds-truncate'][normalize-space()='Home']");
 
 
-    public void submitLoginButton() {
+    public SalesforcePageHeader submitLoginButton() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton)).click();
+        return new SalesforcePageHeader(driver);
     }
 
     public LoginPage putkeysUsername(String usernameValue) {
