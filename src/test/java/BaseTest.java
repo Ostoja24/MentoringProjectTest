@@ -15,19 +15,15 @@ public class BaseTest {
     private String usernameAdmin = "tomasz.ostojski@playful-bear-v3w7c0.com";
     private String passwordAdmin = "7513328D516D673AE189B9ECE5C9E10A";
     private String orgURL = "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com";
-    private String screenMode;
+    private static String screenMode;
     private final int implicitWaitValue = 20;
     protected static WebDriver driver;
 
 
     @BeforeAll
-    public static void setup_before_test() {
+    public static void setup_before_test() throws FileNotFoundException {
         // Starting WebDriver
         WebDriverManager.chromedriver().setup();
-    }
-
-    @BeforeEach
-    public void setup_test() throws FileNotFoundException {
         // Chrome Options
         ChromeOptions options = new ChromeOptions();
         if (getScreenMode().equals("1")) {
@@ -36,8 +32,20 @@ public class BaseTest {
             options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized", "allow-silent-push", "--disable-notifications", "--remote-allow-origins=*");
         }
         driver = new ChromeDriver(options);
-
     }
+
+//    @BeforeEach
+//    public void setup_test() throws FileNotFoundException {
+//        // Chrome Options
+//        ChromeOptions options = new ChromeOptions();
+//        if (getScreenMode().equals("1")) {
+//            options.addArguments("--headless", "--no-sandbox", "--disable-gpu", "--windows-size=1920,1040", "allow-silent-push", "--disable-notifications", "--remote-allow-origins=*");
+//        } else {
+//            options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized", "allow-silent-push", "--disable-notifications", "--remote-allow-origins=*");
+//        }
+//        driver = new ChromeDriver(options);
+
+//    }
 
 
     @AfterEach
@@ -55,11 +63,11 @@ public class BaseTest {
     }
 
     // METHODS
-    public JSONTokener getJsonObject() throws FileNotFoundException {
+    public static JSONTokener getJsonObject() throws FileNotFoundException {
         return new JSONTokener(new FileReader(ORG_INFORMATION));
     }
 
-    public void getSettings() throws FileNotFoundException {
+    public static void getSettings() throws FileNotFoundException {
         JSONObject obj_credentials = new JSONObject(getJsonObject());
         screenMode = obj_credentials.getString("screenmode");
     }
@@ -78,7 +86,7 @@ public class BaseTest {
     }
 
 
-    public String getScreenMode() throws FileNotFoundException {
+    public static String getScreenMode() throws FileNotFoundException {
         getSettings();
         return screenMode;
     }

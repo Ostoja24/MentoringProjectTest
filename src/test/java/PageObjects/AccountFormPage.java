@@ -56,7 +56,8 @@ public class AccountFormPage extends BasePage {
 
 
     public AccountFormPage submitNewAccount() {
-        driver.findElement(SaveAccountRecord).click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(SaveAccountRecord));
+        actions.moveToElement(element).click().perform();
         return this;
     }
 

@@ -13,7 +13,7 @@ public class SalesforcePageHeader extends BasePage {
     private final By waffle = By.xpath("//div[@class='slds-icon-waffle']");
     private final By searchinput = By.xpath("//input[@class='slds-input']");
     private final By pagerecord = By.xpath("//b[normalize-space()='<pageName>']");
-    private final By pageTitle = By.xpath("//div[@class='slds-context-bar__primary navLeft']/..//span[@class='appName slds-context-bar__label-action slds-context-bar__app-name']");
+    private final By appTitle = By.xpath("//div[@class='appName slds-context-bar__label-action slds-context-bar__app-name']/..//span[@class='slds-truncate']");
 
     private String nameTabXpath = "//a[@title='<nameTab>']/parent::*";
     private final String searchInputValueAccount = "Accounts";
@@ -40,6 +40,6 @@ public class SalesforcePageHeader extends BasePage {
     }
 
     public String getPageTitle(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(pageTitle)).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(appTitle)).getText();
     }}
 

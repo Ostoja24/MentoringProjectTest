@@ -5,6 +5,7 @@ import data.DataClass;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -64,6 +65,11 @@ public class scenarioE2E1 extends BaseTest {
                 .putkeysShippingStreet(shippingStreet)
                 .putkeysShippingZip(shippingZip)
                 .putDescription(description + LocalDate.now())
+                .putkeysSLAValue(accountSLA)
+                .putkeysAccountType(accountType)
+                .putkeysAccountRatingValue(accountRating)
+                .putkeysAccountIndustry(accountIndustry)
+                .putkeysAccountCustomerPriority(accountCustomerPriority)
                 .submitNewAccount();
         Assertions.assertEquals("Account " + '"' + accountName + randomNumbers + '"' + " was created.",accountPage.accountToastText());
 
