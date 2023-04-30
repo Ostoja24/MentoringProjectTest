@@ -2,18 +2,21 @@ import org.json.JSONObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.json.JSONTokener;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 public class BaseTest {
     // Variables used in Test Project
 
     private final static String ORG_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\data_login.json";
     private String usernameAdmin = "tomasz.ostojski@playful-bear-v3w7c0.com";
-    private String passwordAdmin = "7513328D516D673AE189B9ECE5C9E10A";
+    private String passwordAdmin = "Koliber12!";
     private String orgURL = "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com";
     private static String screenMode;
     private final int implicitWaitValue = 20;
@@ -26,26 +29,9 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         // Chrome Options
         ChromeOptions options = new ChromeOptions();
-        if (getScreenMode().equals("1")) {
-            options.addArguments("--headless", "--no-sandbox", "--disable-gpu", "--windows-size=1920,1040", "allow-silent-push", "--disable-notifications", "--remote-allow-origins=*");
-        } else {
-            options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized", "allow-silent-push", "--disable-notifications", "--remote-allow-origins=*");
-        }
+        options.addArguments("--start-maximized", "--remote-allow-origins=*", "disable-popup-blocking", "allow-silent-push", "disable-default-apps", "--disable-notifications");
         driver = new ChromeDriver(options);
     }
-
-//    @BeforeEach
-//    public void setup_test() throws FileNotFoundException {
-//        // Chrome Options
-//        ChromeOptions options = new ChromeOptions();
-//        if (getScreenMode().equals("1")) {
-//            options.addArguments("--headless", "--no-sandbox", "--disable-gpu", "--windows-size=1920,1040", "allow-silent-push", "--disable-notifications", "--remote-allow-origins=*");
-//        } else {
-//            options.addArguments("--windows-size=1920,1040", "--ignore-certificate-errors", "--start-maximized", "allow-silent-push", "--disable-notifications", "--remote-allow-origins=*");
-//        }
-//        driver = new ChromeDriver(options);
-
-//    }
 
 
     @AfterEach
@@ -98,5 +84,12 @@ public class BaseTest {
         orgURL = obj_credentials.getString("orgURL");
     }
 
-}
+    public static String accountPhone()
+    {
+        return new Random().ints(9, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
 
+    }
+    public static String randomNumbers() {
+        return new Random().ints(5, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
+    }
+}

@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Scenario Mentoring Writing Script">
+      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountListPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AccountPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AccountPageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/SetupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/SetupPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680862636777</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Scenario Mentoring Writing Script">
+      <created>1681212789118</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681212789118</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,7 +282,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java</url>
-          <line>28</line>
+          <line>30</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

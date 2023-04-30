@@ -19,10 +19,9 @@ public class AccountFormPage extends BasePage {
     private String accountPriorityPicklistOption = "//lightning-base-combobox-item[@data-value='<priorityName>']";
     private String accountRatingPicklistOption = "//lightning-base-combobox-item[@data-value='<ratingName>']";
     private String accountSLAPicklistOption = "//lightning-base-combobox-item[@data-value='<SLAName>']";
-    private String AccountRecordURL;
     private final By accountCustomerField = By.xpath("//label[text()='Customer Priority']/..//button[@role='combobox']");
     private final By billingZipfield = By.xpath("//label[text()='Billing Zip/Postal Code']/..//input[@name='postalCode']");
-    private final By SaveAccountRecord = By.xpath("//button[@name='SaveEdit']");
+    private final By saveAccountRecord = By.xpath("//button[@name='SaveEdit']");
     private final By accountRatingField = By.xpath("//label[text()='Rating']/..//button[@role='combobox']");
 
     private final By accountNewButton = By.xpath("//div[@title='New']");
@@ -35,18 +34,12 @@ public class AccountFormPage extends BasePage {
     private final By shippingCityField = By.xpath("//label[text()='Shipping City']/..//input[@name='city']");
     private final By shippingZipfield = By.xpath("//label[text()='Shipping Zip/Postal Code']/..//input[@name='postalCode']");
     private final By descriptionfield = By.xpath("//label[text()='Description']/..//textarea[@class='slds-textarea']");
+    private final By saveButtonLine = By.xpath("//records-form-footer");
     public AccountFormPage(WebDriver driver) {
         super(driver);
     }
     private static double RandomNumber;
 
-
-    public String AccountURLJSON(String ACCOUNT_INFORMATION) throws FileNotFoundException {
-        DataClass dataclass = new DataClass();
-        JSONObject jsonURLAccount = new JSONObject(dataclass.getAccountFormInfo(ACCOUNT_INFORMATION));
-        AccountRecordURL = jsonURLAccount.getString("AccountRecordsURL");
-        return AccountRecordURL;
-    }
 
 
     public AccountFormPage newAccountForm() {
@@ -55,10 +48,9 @@ public class AccountFormPage extends BasePage {
     }
 
 
-    public AccountFormPage submitNewAccount() {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(SaveAccountRecord));
-        actions.moveToElement(element).click().perform();
-        return this;
+    public AccountRecordPage clickSaveButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(saveAccountRecord)).click();
+        return new AccountRecordPage(driver);
     }
 
     public AccountFormPage putkeysAccountName(String accountName) {

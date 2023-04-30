@@ -24,7 +24,7 @@ public class AccountPageTest extends BaseTest {
     }
 
     @Test()
-    public void newAccount () throws FileNotFoundException {
+    public void newAccount () throws FileNotFoundException, InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         AccountFormPage accountPage = new AccountFormPage(driver);
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
@@ -51,7 +51,7 @@ public class AccountPageTest extends BaseTest {
                 .putkeysBillingStreet(billingStreetValue)
                 .putkeysSLAValue(accountSLAValue)
                 .putkeysAccountCustomerPriority(accountCustomerPriorityValue)
-                .submitNewAccount();
+                .clickSaveButton();
         String AccountTitleValue = accountPage.getAccountNameTitleField();
         // Assertions that created record is saved
         Assertions.assertEquals(accountPage.accountToastText(),AccountTitleValue);
