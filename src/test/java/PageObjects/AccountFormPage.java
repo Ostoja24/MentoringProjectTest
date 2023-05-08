@@ -1,16 +1,12 @@
 package PageObjects;
-
-import data.DataClass;
 import org.openqa.selenium.*;
-import org.json.JSONObject;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.io.FileNotFoundException;
+
 
 
 public class AccountFormPage extends BasePage {
 
     private final By accountIndustryField = By.xpath("//label[text()='Industry']/..//button[@role='combobox']");
-    private final By accounttab = By.xpath("//span[normalize-space()='Accounts']");
     private final By accountnamelement = By.xpath("//input[@name='Name']");
     private final By accounttypefield = By.xpath("//label[text()='Type']/..//button[@role='combobox']");
     private final By accountNameTitle = By.xpath("//lightning-formatted-text[@class='custom-truncate']");
@@ -34,7 +30,6 @@ public class AccountFormPage extends BasePage {
     private final By shippingCityField = By.xpath("//label[text()='Shipping City']/..//input[@name='city']");
     private final By shippingZipfield = By.xpath("//label[text()='Shipping Zip/Postal Code']/..//input[@name='postalCode']");
     private final By descriptionfield = By.xpath("//label[text()='Description']/..//textarea[@class='slds-textarea']");
-    private final By saveButtonLine = By.xpath("//records-form-footer");
     public AccountFormPage(WebDriver driver) {
         super(driver);
     }
@@ -66,7 +61,7 @@ public class AccountFormPage extends BasePage {
     }
 
     public AccountFormPage putkeysAccountIndustry(String AccountIndustry) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(accountIndustryField)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(accountIndustryField)).click();
         String accountIndustryOptionXpath = accountIndustryPicklistOption.replace("<industryName>", AccountIndustry);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountIndustryOptionXpath))).click();
         return this;
@@ -102,7 +97,8 @@ public class AccountFormPage extends BasePage {
     }
 
     public AccountFormPage putkeysSLAValue(String accountSLAValue) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(accountSLAField)).click();
+        scrollToElement(driver.findElement((accountSLAField)));
+        wait.until(ExpectedConditions.elementToBeClickable(accountSLAField)).click();
         String accountRatingOptionXpath = accountSLAPicklistOption.replace("<SLAName>", accountSLAValue);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOptionXpath))).click();
         return this;

@@ -2,7 +2,6 @@ import org.json.JSONObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.json.JSONTokener;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,12 +18,11 @@ public class BaseTest {
     private String passwordAdmin = "Koliber12!";
     private String orgURL = "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com";
     private static String screenMode;
-    private final int implicitWaitValue = 20;
     protected static WebDriver driver;
 
 
     @BeforeAll
-    public static void setup_before_test() throws FileNotFoundException {
+    public static void setup_before_test()  {
         // Starting WebDriver
         WebDriverManager.chromedriver().setup();
         // Chrome Options
@@ -71,11 +69,6 @@ public class BaseTest {
         return orgURL;
     }
 
-
-    public static String getScreenMode() throws FileNotFoundException {
-        getSettings();
-        return screenMode;
-    }
 
     public void getCredentials() throws FileNotFoundException {
         JSONObject obj_credentials = new JSONObject(getJsonObject());
