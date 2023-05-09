@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Scenario Mentoring Writing Script">
+    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Modifying scripts (Soft Assertions and new methods)">
+      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ContactFormPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AccountPageTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" afterDir="false" />
     </list>
@@ -82,20 +82,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomePageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MentoringProjectTest" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HomePageTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="scenarioE2E1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="scenarioE2E1.creatingNewContactFromRelatedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MentoringProjectTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
+      <option name="METHOD_NAME" value="creatingNewContactFromRelatedList" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,10 +124,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.scenarioE2E1" />
+        <item itemvalue="JUnit.scenarioE2E1.creatingNewContactFromRelatedList" />
         <item itemvalue="JUnit.scenarioE2E1.scenarioAccountsCreation" />
         <item itemvalue="JUnit.scenarioE2E1.logintoOrg" />
         <item itemvalue="JUnit.AccountPageTest.logintoOrg" />
-        <item itemvalue="JUnit.HomePageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -237,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682847283968</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Modifying scripts (Soft Assertions and new methods)">
+      <created>1683526771378</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683526771378</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,7 +277,8 @@
     <MESSAGE value="New changes and fixes" />
     <MESSAGE value="Add Scenario and fixed" />
     <MESSAGE value="Scenario Mentoring Writing Script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scenario Mentoring Writing Script" />
+    <MESSAGE value="Modifying scripts (Soft Assertions and new methods)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifying scripts (Soft Assertions and new methods)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,12 +1,17 @@
-import org.json.JSONObject;
+import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Locale;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -82,7 +87,10 @@ public class BaseTest {
         return new Random().ints(9, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
 
     }
-    public static String randomNumbers() {
-        return new Random().ints(5, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
+    public static String randomNumbers(Integer numberofNumbers) {
+        return new Random().ints(numberofNumbers, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
+    }
+    public static Faker fakerObject(){
+        return new Faker(Locale.of("pl"));
     }
 }
