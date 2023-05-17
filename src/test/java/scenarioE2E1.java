@@ -130,6 +130,7 @@ public class scenarioE2E1 extends BaseTest {
     public void creatingNewContactFromRelatedList() {
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
         ContactFormPage contactFormPage = new ContactFormPage(driver);
+        SoftAssertions softAssertions = new SoftAssertions();
         accountRecordPage.clickDetailsRecordPageTab("relatedListsTab");
         accountRecordPage.clickNewButtonOnRelatedList("Contact.NewContact");
         contactFormPage.clicksalutationContact("Mr.")
@@ -148,7 +149,19 @@ public class scenarioE2E1 extends BaseTest {
                 .putintoFieldContact("Other Street","textarea",otherStreetContact)
                 .putintoFieldContact("Other City","input",otherCityContact)
                 .putintoFieldContact("Other Zip/Postal Code","input",otherZipContact);
+        accountRecordPage.clickSaveContactButton();
+        softAssertions.assertThat(accountRecordPage.returnContactNumberonRelatedList()).isEqualTo("(1)");
+        softAssertions.assertThat(accountRecordPage.returnToastContactRecordCreation()).isEqualTo("Mr.  " + firstNameContact);
 
     }
+    @Test()
+    @Order(7)
+    public void checkingContactDetails(){
+        ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
+        AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
+        accountRecordPage.clickRecordButtonOnRelatedList(firstNameContact+" " +lastNameContact);
+        contactRecordPage.clickDetailsContact();
 
+
+    }
 }

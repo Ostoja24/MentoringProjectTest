@@ -11,7 +11,7 @@ public class ContactFormPage extends BasePage {
     private final By salutationContact = By.xpath("//label[text()='Salutation']/..//button");
     private final String salutationContactOptionXpath = "//lightning-base-combobox-item[@data-value='<salutationName>']";
     private final String fieldContact = "//label[text()='<labelField>']/..//<fieldTypeName>";
-
+    private final By saveButtonContact = By.xpath("//button[@name='SaveEdit']");
     private final By mailingStreetField = By.xpath("//label[text()='Mailing Street']/..//textarea");
 
 
@@ -38,4 +38,5 @@ public class ContactFormPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(fieldContactXpath))).clear();
         return this;
     }
+
 }
