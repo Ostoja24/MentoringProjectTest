@@ -41,7 +41,7 @@ public class AccountRecordPage extends BasePage {
     }
     public AccountRecordPage clickRecordButtonOnRelatedList(String contactName){
         String replaceRecordButtonXpath = contactRecordRelatedList.replace("<contactName>",contactName);
-        scrollToElement(driver.findElement(By.xpath(replaceRecordButtonXpath)));
+        scrollToElement(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(replaceRecordButtonXpath))));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceRecordButtonXpath))).click();
         return this;
     }

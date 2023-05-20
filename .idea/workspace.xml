@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Modifying scripts (Soft Assertions and new methods)">
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ContactRecordPage.java" afterDir="false" />
+    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Extending Scripts in Test scenarioE2E1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ContactFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ContactFormPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ContactRecordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ContactRecordPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -244,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683526771378</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Extending Scripts in Test scenarioE2E1">
+      <created>1684306186030</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1684306186030</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,7 +283,8 @@
     <MESSAGE value="Add Scenario and fixed" />
     <MESSAGE value="Scenario Mentoring Writing Script" />
     <MESSAGE value="Modifying scripts (Soft Assertions and new methods)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifying scripts (Soft Assertions and new methods)" />
+    <MESSAGE value="Extending Scripts in Test scenarioE2E1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Extending Scripts in Test scenarioE2E1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

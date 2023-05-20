@@ -1,11 +1,9 @@
 import PageObjects.*;
-import com.github.javafaker.Faker;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
-import java.util.Locale;
 
 import org.assertj.core.api.SoftAssertions;
 
@@ -159,9 +157,25 @@ public class scenarioE2E1 extends BaseTest {
     public void checkingContactDetails(){
         ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
-        accountRecordPage.clickRecordButtonOnRelatedList(firstNameContact+" " +lastNameContact);
+        SoftAssertions softAssertions = new SoftAssertions();
+        accountRecordPage.clickRecordButtonOnRelatedList(firstNameContact + " " + lastNameContact);
         contactRecordPage.clickDetailsContact();
-
-
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Name")).isEqualTo("Mr. " + firstNameContact);
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Mobile")).isEqualTo(mobileContact);
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Other Phone")).isEqualTo(phoneContact);
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Email")).isEqualTo(emailContact);
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordAdress("Mailing Address")).isEqualTo(mailingStreetContact + mailingCityContact + mailingZipContact);
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordAdress("Other Address")).isEqualTo(otherStreetContact + otherCityContact + otherZipContact);
+    }
+    @Test()
+    @Order(8)
+    public void changingNameContact(){
+        ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
+        SoftAssertions softAssertions = new SoftAssertions();
+        contactRecordPage.clickEditName()
+                .changeLastName("Automation-Test")
+                .clickSaveButton();
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Name")).isNotEqualTo("Mr. " + firstNameContact);
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Name")).isEqualTo("Mr. " + "Automation-Test");
     }
 }
