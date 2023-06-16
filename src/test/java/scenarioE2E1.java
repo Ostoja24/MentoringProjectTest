@@ -54,51 +54,51 @@ public class scenarioE2E1 extends BaseTest {
 
     @Test()
     @Order(1)
-    public void logintoOrg() {
+    public void logIntoOrg() {
         LoginPage loginPage = new LoginPage(driver);
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
         loginPage.navigateToLoginUrl(driver, getOrgURL());
-        loginPage.putkeysUsername(usernamevalue_login)
-                .putkeysPassword(passwordvalue_login)
+        loginPage.putKeysIntoFieldUsername(usernamevalue_login)
+                .putKeysIntoFieldPassword(passwordvalue_login)
                 .submitLoginButton();
-        Assertions.assertEquals("Setup", sfPage.getSetupPageTitle());
+        Assertions.assertEquals("Setup", sfPage.getPageTitle());
     }
 
     @Test()
     @Order(2)
-    public void clickintoSalesApp() {
+    public void salesAppTitleViewingInPage() {
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
-        sfPage.searchInput("Sales");
+        sfPage.searchInputIntoAppLauncher("Sales");
         Assertions.assertEquals("Sales", sfPage.getPageTitle());
     }
 
     @Test()
     @Order(3)
-    public void clickintoAccountTab() {
+    public void clickintoAccountTabOnSalesforcePageHeader() {
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
-        sfPage.clickTab("Accounts");
+        sfPage.clickTabOnSalesforceHeader("Accounts");
     }
 
     @Test()
     @Order(4)
-    public void newAccountRecord() {
+    public void accountCreationMessage() {
         AccountListPage accountlistPage = new AccountListPage(driver);
         AccountFormPage accountPage = new AccountFormPage(driver);
         accountlistPage
                 .clicknewAccountButton()
-                .putkeysAccountName(accountName + randomNumbersValue)
-                .putkeysAccountType(accountType)
-                .putkeysAccountRatingValue(accountRating)
-                .putkeysPhoneNumber(accountPhoneValue)
-                .putkeysBillingStreet(billingStreet)
-                .putkeysAccountIndustry(accountIndustry)
-                .putkeysBillingCity(billingCity)
-                .putkeysBillingZipValue(billingZip)
-                .putkeysShippingCity(shippingCity)
-                .putkeysShippingStreet(shippingStreet)
-                .putkeysShippingZip(shippingZip)
-                .putkeysSLAValue(accountSLA)
-                .putkeysAccountCustomerPriority(accountCustomerPriority)
+                .putKeysIntoFieldAccountName(accountName + randomNumbersValue)
+                .putKeysIntoFieldAccountType(accountType)
+                .putKeysIntoFieldAccountRatingValue(accountRating)
+                .putKeysIntoFieldPhoneNumber(accountPhoneValue)
+                .putKeysIntoFieldBillingStreet(billingStreet)
+                .putKeysIntoFieldAccountIndustry(accountIndustry)
+                .putKeysIntoFieldBillingCity(billingCity)
+                .putKeysIntoFieldBillingZipValue(billingZip)
+                .putKeysIntoFieldShippingCity(shippingCity)
+                .putKeysIntoFieldShippingStreet(shippingStreet)
+                .putKeysIntoFieldShippingZip(shippingZip)
+                .putKeysIntoFieldSLAValue(accountSLA)
+                .putKeysIntoFieldAccountCustomerPriority(accountCustomerPriority)
                 .putDescription(description + LocalDate.now())
                 .clickSaveButton();
         Assertions.assertEquals("Account " + '"' + accountName + randomNumbersValue + '"' + " was created.", accountPage.accountToastText());
@@ -106,7 +106,7 @@ public class scenarioE2E1 extends BaseTest {
 
     @Test()
     @Order(5)
-    public void checkingCreatedAccountDetails() {
+    public void detailsAccountEqualsToData() {
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
         accountRecordPage.clickDetailsRecordPageTab("detailTab");
         SoftAssertions softAssertions = new SoftAssertions();
@@ -115,7 +115,7 @@ public class scenarioE2E1 extends BaseTest {
         softAssertions.assertThat(accountRecordPage.getAccountFieldText("Type")).isEqualTo(accountType, accountRecordPage.getAccountFieldText("Type"));
         softAssertions.assertThat(accountRecordPage.getAccountFieldText("Rating")).isEqualTo(accountRating, accountRecordPage.getAccountFieldText("Rating"));
         softAssertions.assertThat(accountRecordPage.getAccountFieldText("Customer Priority")).isEqualTo(accountCustomerPriority, accountRecordPage.getAccountFieldText("Customer Priority"));
-        softAssertions.assertThat(accountRecordPage.getAccountPhoneRecordXpath()).isEqualTo(accountPhoneValue);
+        softAssertions.assertThat(accountRecordPage.getAccountPhoneOnRecord()).isEqualTo(accountPhoneValue);
         softAssertions.assertThat(accountRecordPage.getAccountFieldText("SLA")).isEqualTo(accountSLA, accountRecordPage.getAccountFieldText("SLA"));
         softAssertions.assertThat(accountRecordPage.getAccountAddressText("Billing Address")).isEqualTo("Toruńska\n" +
                 "Toruń\n" +
@@ -125,28 +125,28 @@ public class scenarioE2E1 extends BaseTest {
 
     @Test()
     @Order(6)
-    public void creatingNewContactFromRelatedList() {
+    public void creationNewContactInAccountAndViewingOnRelatedList() {
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
         ContactFormPage contactFormPage = new ContactFormPage(driver);
         SoftAssertions softAssertions = new SoftAssertions();
         accountRecordPage.clickDetailsRecordPageTab("relatedListsTab");
         accountRecordPage.clickNewButtonOnRelatedList("Contact.NewContact");
-        contactFormPage.clicksalutationContact("Mr.")
-                .putintoFieldContact("First Name","input", firstNameContact)
-                .putintoFieldContact("Last Name","input", lastNameContact)
-                .putintoFieldContact("Mobile","input", mobileContact)
-                .putintoFieldContact("Other Phone","input", phoneContact)
-                .putintoFieldContact("Email","input", emailContact)
+        contactFormPage.clickSalutationContact("Mr.")
+                .putIntoFieldInContactForm("First Name","input", firstNameContact)
+                .putIntoFieldInContactForm("Last Name","input", lastNameContact)
+                .putIntoFieldInContactForm("Mobile","input", mobileContact)
+                .putIntoFieldInContactForm("Other Phone","input", phoneContact)
+                .putIntoFieldInContactForm("Email","input", emailContact)
                 .scrollIntoFieldMailingStreet()
-                .clearFieldContact("Mailing Street","textarea")
-                .clearFieldContact("Mailing City","input")
-                .clearFieldContact("Mailing Zip/Postal Code","input")
-                .putintoFieldContact("Mailing Street","textarea",mailingStreetContact)
-                .putintoFieldContact("Mailing City","input",mailingCityContact)
-                .putintoFieldContact("Mailing Zip/Postal Code","input",mailingZipContact)
-                .putintoFieldContact("Other Street","textarea",otherStreetContact)
-                .putintoFieldContact("Other City","input",otherCityContact)
-                .putintoFieldContact("Other Zip/Postal Code","input",otherZipContact);
+                .clearFieldOnContactForm("Mailing Street","textarea")
+                .clearFieldOnContactForm("Mailing City","input")
+                .clearFieldOnContactForm("Mailing Zip/Postal Code","input")
+                .putIntoFieldInContactForm("Mailing Street","textarea",mailingStreetContact)
+                .putIntoFieldInContactForm("Mailing City","input",mailingCityContact)
+                .putIntoFieldInContactForm("Mailing Zip/Postal Code","input",mailingZipContact)
+                .putIntoFieldInContactForm("Other Street","textarea",otherStreetContact)
+                .putIntoFieldInContactForm("Other City","input",otherCityContact)
+                .putIntoFieldInContactForm("Other Zip/Postal Code","input",otherZipContact);
         accountRecordPage.clickSaveContactButton();
         softAssertions.assertThat(accountRecordPage.returnContactNumberonRelatedList()).isEqualTo("(1)");
         softAssertions.assertThat(accountRecordPage.returnToastContactRecordCreation()).isEqualTo("Mr.  " + firstNameContact);
@@ -154,7 +154,7 @@ public class scenarioE2E1 extends BaseTest {
     }
     @Test()
     @Order(7)
-    public void checkingContactDetails(){
+    public void checkingFieldsValuesOnContactDetails(){
         ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
         SoftAssertions softAssertions = new SoftAssertions();
@@ -169,7 +169,7 @@ public class scenarioE2E1 extends BaseTest {
     }
     @Test()
     @Order(8)
-    public void changingNameContact(){
+    public void changingNameOnExistingContactRecord(){
         ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
         SoftAssertions softAssertions = new SoftAssertions();
         contactRecordPage.clickEditName()

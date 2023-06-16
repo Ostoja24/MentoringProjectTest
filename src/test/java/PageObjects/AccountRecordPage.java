@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AccountRecordPage extends BasePage {
+    public AccountRecordPage(WebDriver driver) {
+        super(driver);
+    }
     private final String accountRecordItemXpath = "//records-record-layout-item[@field-label='<Field>']/..//lightning-formatted-text";
     private final By accountPhoneRecordXpath = By.xpath("//div[@records-recordlayoutitem_recordlayoutitem]/..//a[@lightning-formattedphone_formattedphone]");
     private final String nameTabXpath = "//a[@data-tab-value='<nameTab>']";
@@ -14,16 +17,14 @@ public class AccountRecordPage extends BasePage {
     private final By saveButtonContact = By.xpath("//button[@name='SaveEdit']");
     private final By toastContactCreationText = By.xpath("//div[@class='toastContent slds-notify__content']/..//a/div");
     private final By contactNumberonRelatedList = By.xpath("//span[@title='Contacts']/..//span[@class='lds-shrink-none slds-m-right--xx-small']");
-    public AccountRecordPage(WebDriver driver) {
-        super(driver);
-    }
+
 
     public String getAccountFieldText(String fieldName) {
         String replaceAccountFieldNameXpath = accountRecordItemXpath.replace("<Field>", fieldName);
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceAccountFieldNameXpath))).getText();
     }
 
-    public String getAccountPhoneRecordXpath() {
+    public String getAccountPhoneOnRecord() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(accountPhoneRecordXpath)).getText();
     }
 

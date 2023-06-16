@@ -33,14 +33,6 @@ public class AccountFormPage extends BasePage {
     public AccountFormPage(WebDriver driver) {
         super(driver);
     }
-    private static double RandomNumber;
-
-
-
-    public AccountFormPage newAccountForm() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(accountNewButton)).click();
-        return this;
-    }
 
 
     public AccountRecordPage clickSaveButton() {
@@ -48,83 +40,80 @@ public class AccountFormPage extends BasePage {
         return new AccountRecordPage(driver);
     }
 
-    public AccountFormPage putkeysAccountName(String accountName) {
+    public AccountFormPage putKeysIntoFieldAccountName(String accountName) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountnamelement)).sendKeys(accountName);
         return this;
     }
 
-    public AccountFormPage putkeysAccountType(String AccountType) {
+    public AccountFormPage putKeysIntoFieldAccountType(String AccountType) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accounttypefield)).click();
         String accountTypeOptionXpath = accountTypefield.replace("<typeName>", AccountType);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountTypeOptionXpath))).click();
         return this;
     }
 
-    public AccountFormPage putkeysAccountIndustry(String AccountIndustry) {
+    public AccountFormPage putKeysIntoFieldAccountIndustry(String AccountIndustry) {
         wait.until(ExpectedConditions.elementToBeClickable(accountIndustryField)).click();
         String accountIndustryOptionXpath = accountIndustryPicklistOption.replace("<industryName>", AccountIndustry);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountIndustryOptionXpath))).click();
         return this;
     }
 
-    public AccountFormPage putkeysAccountCustomerPriority(String AccountCustomerPriority) {
+    public AccountFormPage putKeysIntoFieldAccountCustomerPriority(String AccountCustomerPriority) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountCustomerField)).click();
         String accountPriorityOptionXpath = accountPriorityPicklistOption.replace("<priorityName>", AccountCustomerPriority);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountPriorityOptionXpath))).click();
         return this;
     }
 
-    public AccountFormPage putkeysBillingStreet(String BillingStreet) {
+    public AccountFormPage putKeysIntoFieldBillingStreet(String BillingStreet) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(billingStreetField)).sendKeys(BillingStreet);
         return this;
     }
 
-    public AccountFormPage putkeysBillingCity(String BillingCity) {
+    public AccountFormPage putKeysIntoFieldBillingCity(String BillingCity) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(billingCityField)).sendKeys(BillingCity);
         return this;
     }
 
-    public AccountFormPage putkeysAccountRatingValue(String accountRatingValue) {
+    public AccountFormPage putKeysIntoFieldAccountRatingValue(String accountRatingValue) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountRatingField)).click();
         String accountRatingOptionXpath = accountRatingPicklistOption.replace("<ratingName>", accountRatingValue);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOptionXpath))).click();
         return this;
     }
 
-    public AccountFormPage putkeysBillingZipValue(String billingZipValue) {
+    public AccountFormPage putKeysIntoFieldBillingZipValue(String billingZipValue) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(billingZipfield)).sendKeys(billingZipValue);
         return this;
     }
 
-    public AccountFormPage putkeysSLAValue(String accountSLAValue) {
+    public AccountFormPage putKeysIntoFieldSLAValue(String accountSLAValue) {
         scrollToElement(driver.findElement((accountSLAField)));
         wait.until(ExpectedConditions.elementToBeClickable(accountSLAField)).click();
         String accountRatingOptionXpath = accountSLAPicklistOption.replace("<SLAName>", accountSLAValue);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOptionXpath))).click();
         return this;
     }
-    public AccountFormPage putkeysPhoneNumber(String accountPhoneNumberValue) {
+    public AccountFormPage putKeysIntoFieldPhoneNumber(String accountPhoneNumberValue) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountPhoneNumber)).sendKeys(accountPhoneNumberValue);
         return this;
-    }
-    public String getAccountNameTitleField(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(accountNameTitle)).getText();
     }
 
     public String accountToastText(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(forceVisualMessageQueue)).getText();
     }
-    public AccountFormPage putkeysShippingStreet(String shippingStreet) {
+    public AccountFormPage putKeysIntoFieldShippingStreet(String shippingStreet) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(shippingStreetField)).sendKeys(shippingStreet);
         return this;
     }
 
-    public AccountFormPage putkeysShippingCity(String shippingCity) {
+    public AccountFormPage putKeysIntoFieldShippingCity(String shippingCity) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(shippingCityField)).sendKeys(shippingCity);
         return this;
     }
 
-    public AccountFormPage putkeysShippingZip(String ShippingZipValue) {
+    public AccountFormPage putKeysIntoFieldShippingZip(String ShippingZipValue) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(shippingZipfield)).sendKeys(ShippingZipValue);
         return this;
     }

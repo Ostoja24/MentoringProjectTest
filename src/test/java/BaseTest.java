@@ -1,9 +1,7 @@
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,7 +20,6 @@ public class BaseTest {
     private String usernameAdmin = "tomasz.ostojski@playful-bear-v3w7c0.com";
     private String passwordAdmin = "Koliber12!";
     private String orgURL = "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com";
-    private static String screenMode;
     protected static WebDriver driver;
 
 
@@ -37,12 +34,6 @@ public class BaseTest {
     }
 
 
-    @AfterEach
-    public void afterEachTest() {
-        new allureScreenshotTestClass();
-    }
-
-
     @AfterAll
     public static void teardown() {
         if (driver != null) {
@@ -52,14 +43,7 @@ public class BaseTest {
     }
 
     // METHODS
-    public static JSONTokener getJsonObject() throws FileNotFoundException {
-        return new JSONTokener(new FileReader(ORG_INFORMATION));
-    }
 
-    public static void getSettings() throws FileNotFoundException {
-        JSONObject obj_credentials = new JSONObject(getJsonObject());
-        screenMode = obj_credentials.getString("screenmode");
-    }
 
     public String getUsernameAdmin() {
         return usernameAdmin;
@@ -74,13 +58,6 @@ public class BaseTest {
         return orgURL;
     }
 
-
-    public void getCredentials() throws FileNotFoundException {
-        JSONObject obj_credentials = new JSONObject(getJsonObject());
-        usernameAdmin = obj_credentials.getString("username");
-        passwordAdmin = obj_credentials.getString("password");
-        orgURL = obj_credentials.getString("orgURL");
-    }
 
     public static String accountPhone()
     {

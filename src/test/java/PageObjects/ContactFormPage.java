@@ -11,17 +11,16 @@ public class ContactFormPage extends BasePage {
     private final By salutationContact = By.xpath("//label[text()='Salutation']/..//button");
     private final String salutationContactOptionXpath = "//lightning-base-combobox-item[@data-value='<salutationName>']";
     private final String fieldContact = "//label[text()='<labelField>']/..//<fieldTypeName>";
-    private final By saveButtonContact = By.xpath("//button[@name='SaveEdit']");
     private final By mailingStreetField = By.xpath("//label[text()='Mailing Street']/..//textarea");
 
 
-    public ContactFormPage clicksalutationContact(String contactSalutationValue) {
+    public ContactFormPage clickSalutationContact(String contactSalutationValue) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(salutationContact)).click();
         String salutationContactOptionXpathReplace = salutationContactOptionXpath.replace("<salutationName>", contactSalutationValue);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(salutationContactOptionXpathReplace))).click();
         return this;
     }
-    public ContactFormPage putintoFieldContact(String fieldLabelName,String fieldTypeName, String inputContactText){
+    public ContactFormPage putIntoFieldInContactForm(String fieldLabelName,String fieldTypeName, String inputContactText){
         String fieldContactXpath = fieldContact.replace("<labelField>", fieldLabelName);
         fieldContactXpath = fieldContactXpath.replace("<fieldTypeName>",fieldTypeName);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(fieldContactXpath))).sendKeys(inputContactText);
@@ -32,7 +31,7 @@ public class ContactFormPage extends BasePage {
         scrollToElement(mailingStreetElement);
         return this;
     }
-    public ContactFormPage clearFieldContact(String fieldLabelName,String fieldTypeName){
+    public ContactFormPage clearFieldOnContactForm(String fieldLabelName,String fieldTypeName){
         String fieldContactXpath = fieldContact.replace("<labelField>", fieldLabelName);
         fieldContactXpath = fieldContactXpath.replace("<fieldTypeName>",fieldTypeName);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(fieldContactXpath))).clear();

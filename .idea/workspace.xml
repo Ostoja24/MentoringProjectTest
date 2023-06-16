@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Extending Scripts in Test scenarioE2E1">
+    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Refactor of Naming Methods and Variables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HomePageTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountFormPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ContactFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ContactFormPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ContactRecordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ContactRecordPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/SetupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/SetupPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,10 +65,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/tomcz/IdeaProjects/MentoringProjectTest&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -69,12 +76,12 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.scenarioE2E1">
-    <configuration name="AccountPageTest.logintoOrg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HomePageTest.login_and_check_page_title">
+    <configuration name="HomePageTest.login_and_check_page_title" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AccountPageTest" />
-      <option name="METHOD_NAME" value="logintoOrg" />
+      <option name="MAIN_CLASS_NAME" value="HomePageTest" />
+      <option name="METHOD_NAME" value="login_and_check_page_title" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,11 +128,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HomePageTest.login_and_check_page_title" />
         <item itemvalue="JUnit.scenarioE2E1" />
         <item itemvalue="JUnit.scenarioE2E1.creatingNewContactFromRelatedList" />
         <item itemvalue="JUnit.scenarioE2E1.scenarioAccountsCreation" />
         <item itemvalue="JUnit.scenarioE2E1.logintoOrg" />
-        <item itemvalue="JUnit.AccountPageTest.logintoOrg" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684306186030</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Modifications of Script">
+      <created>1684601444606</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1684601444606</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,7 +298,9 @@
     <MESSAGE value="Scenario Mentoring Writing Script" />
     <MESSAGE value="Modifying scripts (Soft Assertions and new methods)" />
     <MESSAGE value="Extending Scripts in Test scenarioE2E1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Extending Scripts in Test scenarioE2E1" />
+    <MESSAGE value="Modifications of Script" />
+    <MESSAGE value="Refactor of Naming Methods and Variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor of Naming Methods and Variables" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -295,7 +311,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java</url>
-          <line>34</line>
+          <line>33</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

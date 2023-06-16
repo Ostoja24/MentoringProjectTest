@@ -8,7 +8,7 @@ public class ContactRecordPage extends BasePage {
     private final String getFieldContactRecordText = "//span[text()='<fieldName>']/ancestor::*//lightning-formatted-name";
     private final By clickDetailsContact = By.xpath("(//a[@data-tab-value='detailTab'])[2]");
 
-    private final String getFieldContactRecordAdress = "//records-record-layout-item[@field-label='<adressField>']//a";
+    private final String getFieldContactRecordAddress = "//records-record-layout-item[@field-label='<adressField>']//a";
     private final By clickEditName = By.xpath("(//div/button[@title='Edit Name'])[1]");
     private final By lastNameField = By.xpath("//input[@placeholder='Last Name']");
     private final By saveButton = By.xpath("//button[@name='SaveEdit']");
@@ -24,7 +24,7 @@ public class ContactRecordPage extends BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceFieldContactRecordXpath))).getText();
     }
     public String getFieldContactRecordAdress (String adressName){
-        String replaceFieldContactRecordXpath = getFieldContactRecordAdress.replace("<adressField>",adressName);
+        String replaceFieldContactRecordXpath = getFieldContactRecordAddress.replace("<adressField>",adressName);
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceFieldContactRecordXpath))).getText();
     }
     public ContactRecordPage clickEditName (){

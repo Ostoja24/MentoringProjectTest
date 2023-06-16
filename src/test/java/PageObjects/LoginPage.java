@@ -13,7 +13,6 @@ public class LoginPage extends BasePage {
     private final By usernameInput = By.xpath("//*[@id='username']");
     private final By passwordInput = By.xpath("//*[@id='password']");
     private final By loginButton = By.xpath("//*[@id='Login']");
-    private final By homeButton = By.xpath("//a[@class='tabHeader slds-context-bar__label-action ']//span[@class='title slds-truncate'][normalize-space()='Home']");
 
 
     public SalesforcePageHeader submitLoginButton() {
@@ -21,12 +20,12 @@ public class LoginPage extends BasePage {
         return new SalesforcePageHeader(driver);
     }
 
-    public LoginPage putkeysUsername(String usernameValue) {
+    public LoginPage putKeysIntoFieldUsername(String usernameValue) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(usernameInput)).sendKeys(usernameValue);
         return this;
     }
 
-    public LoginPage putkeysPassword(String passwordValue) {
+    public LoginPage putKeysIntoFieldPassword(String passwordValue) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput)).sendKeys(passwordValue);
         return this;
     }
@@ -34,7 +33,7 @@ public class LoginPage extends BasePage {
     public void navigateToLoginUrl(WebDriver driver, String orgURL) {
         driver.get(orgURL);
     }
-    public String returnPagetitle(WebDriver driver){
+    public String returnPageTitle(WebDriver driver){
         return driver.getCurrentUrl();
     }
 
