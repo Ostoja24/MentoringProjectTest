@@ -12,7 +12,7 @@ public class SalesforcePageHeader extends BasePage {
     private String pageRecordOnListInAppLauncher = "//p[@class='slds-truncate' and not(descendant::text()!='<appName>')]/b[text()='<appName>']";
     private final By waffleAppLauncher = By.xpath("//div[@class='slds-icon-waffle']");
     private final By searchInputInAppLauncher = By.xpath("//input[@class='slds-input']");
-    private final By appTitle = By.xpath("//span[@class='appName slds-context-bar__label-action slds-context-bar__app-name']");
+    private final By appTitle = By.xpath("//div[@class='appName slds-context-bar__label-action slds-context-bar__app-name']");
     private String nameTabOnSalesforceHeader = "//a[@title='<nameTab>']/parent::*";
 
 
@@ -26,8 +26,8 @@ public class SalesforcePageHeader extends BasePage {
 
 
     public void clickTabOnSalesforceHeader(String nameTab) {
-        String replaceTabNameXpath = nameTabOnSalesforceHeader.replace("<nameTab>", nameTab);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceTabNameXpath))).click();
+        String replaceTabName = nameTabOnSalesforceHeader.replace("<nameTab>", nameTab);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceTabName))).click();
     }
 
     public String getPageTitle() {

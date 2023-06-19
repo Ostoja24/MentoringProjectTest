@@ -47,22 +47,22 @@ public class AccountFormPage extends BasePage {
 
     public AccountFormPage putKeysIntoFieldAccountType(String AccountType) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accounttypefield)).click();
-        String accountTypeOptionXpath = accountTypefield.replace("<typeName>", AccountType);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountTypeOptionXpath))).click();
+        String accountTypeOption = accountTypefield.replace("<typeName>", AccountType);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountTypeOption))).click();
         return this;
     }
 
     public AccountFormPage putKeysIntoFieldAccountIndustry(String AccountIndustry) {
         wait.until(ExpectedConditions.elementToBeClickable(accountIndustryField)).click();
-        String accountIndustryOptionXpath = accountIndustryPicklistOption.replace("<industryName>", AccountIndustry);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountIndustryOptionXpath))).click();
+        String accountIndustryOption = accountIndustryPicklistOption.replace("<industryName>", AccountIndustry);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountIndustryOption))).click();
         return this;
     }
 
     public AccountFormPage putKeysIntoFieldAccountCustomerPriority(String AccountCustomerPriority) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountCustomerField)).click();
-        String accountPriorityOptionXpath = accountPriorityPicklistOption.replace("<priorityName>", AccountCustomerPriority);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountPriorityOptionXpath))).click();
+        String accountPriorityOption = accountPriorityPicklistOption.replace("<priorityName>", AccountCustomerPriority);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountPriorityOption))).click();
         return this;
     }
 
@@ -78,8 +78,8 @@ public class AccountFormPage extends BasePage {
 
     public AccountFormPage putKeysIntoFieldAccountRatingValue(String accountRatingValue) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountRatingField)).click();
-        String accountRatingOptionXpath = accountRatingPicklistOption.replace("<ratingName>", accountRatingValue);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOptionXpath))).click();
+        String accountRatingOption = accountRatingPicklistOption.replace("<ratingName>", accountRatingValue);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOption))).click();
         return this;
     }
 
@@ -91,8 +91,8 @@ public class AccountFormPage extends BasePage {
     public AccountFormPage putKeysIntoFieldSLAValue(String accountSLAValue) {
         scrollToElement(driver.findElement((accountSLAField)));
         wait.until(ExpectedConditions.elementToBeClickable(accountSLAField)).click();
-        String accountRatingOptionXpath = accountSLAPicklistOption.replace("<SLAName>", accountSLAValue);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOptionXpath))).click();
+        String accountRatingOption = accountSLAPicklistOption.replace("<SLAName>", accountSLAValue);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountRatingOption))).click();
         return this;
     }
     public AccountFormPage putKeysIntoFieldPhoneNumber(String accountPhoneNumberValue) {

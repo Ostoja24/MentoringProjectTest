@@ -8,11 +8,11 @@ public class AccountRecordPage extends BasePage {
     public AccountRecordPage(WebDriver driver) {
         super(driver);
     }
-    private final String accountRecordItemXpath = "//records-record-layout-item[@field-label='<Field>']/..//lightning-formatted-text";
-    private final By accountPhoneRecordXpath = By.xpath("//div[@records-recordlayoutitem_recordlayoutitem]/..//a[@lightning-formattedphone_formattedphone]");
-    private final String nameTabXpath = "//a[@data-tab-value='<nameTab>']";
-    private final String accountAddressXpath = "//span[text()='<Field>']/ancestor::div[@class='slds-form-element slds-hint-parent test-id__output-root slds-form-element_edit slds-form-element_readonly slds-form-element_stacked']//lightning-formatted-address";
-    private final String buttonNewOnRelatedListXpath = "//li[@data-target-selection-name='sfdc:StandardButton.<newButton>']";
+    private final String accountRecordItem = "//records-record-layout-item[@field-label='<Field>']/..//lightning-formatted-text";
+    private final By accountPhoneRecord = By.xpath("//div[@records-recordlayoutitem_recordlayoutitem]/..//a[@lightning-formattedphone_formattedphone]");
+    private final String nameTab = "//a[@data-tab-value='<nameTab>']";
+    private final String accountAddress = "//span[text()='<Field>']/ancestor::div[@class='slds-form-element slds-hint-parent test-id__output-root slds-form-element_edit slds-form-element_readonly is-stacked is-stacked-not-editing']//lightning-formatted-address";
+    private final String buttonNewOnRelatedList = "//li[@data-target-selection-name='sfdc:StandardButton.<newButton>']";
     private final String contactRecordRelatedList = "//span[@title='Contacts']/ancestor::*//span[text()='<contactName>']";
     private final By saveButtonContact = By.xpath("//button[@name='SaveEdit']");
     private final By toastContactCreationText = By.xpath("//div[@class='toastContent slds-notify__content']/..//a/div");
@@ -20,30 +20,30 @@ public class AccountRecordPage extends BasePage {
 
 
     public String getAccountFieldText(String fieldName) {
-        String replaceAccountFieldNameXpath = accountRecordItemXpath.replace("<Field>", fieldName);
-        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceAccountFieldNameXpath))).getText();
+        String replaceAccountFieldName = accountRecordItem.replace("<Field>", fieldName);
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceAccountFieldName))).getText();
     }
 
     public String getAccountPhoneOnRecord() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(accountPhoneRecordXpath)).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(accountPhoneRecord)).getText();
     }
 
     public void clickDetailsRecordPageTab(String nameTabValue) {
-        String replacenameTabXpath = nameTabXpath.replace("<nameTab>",nameTabValue);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replacenameTabXpath))).click();
+        String replaceNameTab = nameTab.replace("<nameTab>",nameTabValue);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceNameTab))).click();
     }
     public String getAccountAddressText(String fieldName){
-        String replaceAccountAddressXpath = accountAddressXpath.replace("<Field>", fieldName);
-        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceAccountAddressXpath))).getText();
+        String replaceAccountAddress = accountAddress.replace("<Field>", fieldName);
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceAccountAddress))).getText();
     }
     public void clickNewButtonOnRelatedList(String buttonNewName){
-        String replaceButtonNewOnRelatedList = buttonNewOnRelatedListXpath.replace("<newButton>",buttonNewName);
+        String replaceButtonNewOnRelatedList = buttonNewOnRelatedList.replace("<newButton>",buttonNewName);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceButtonNewOnRelatedList))).click();
     }
     public AccountRecordPage clickRecordButtonOnRelatedList(String contactName){
-        String replaceRecordButtonXpath = contactRecordRelatedList.replace("<contactName>",contactName);
-        scrollToElement(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(replaceRecordButtonXpath))));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceRecordButtonXpath))).click();
+        String replaceRecordButton = contactRecordRelatedList.replace("<contactName>",contactName);
+        scrollToElement(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(replaceRecordButton))));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceRecordButton))).click();
         return this;
     }
     public String returnContactNumberonRelatedList(){
