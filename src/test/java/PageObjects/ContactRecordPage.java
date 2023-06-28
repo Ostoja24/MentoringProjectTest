@@ -23,7 +23,7 @@ public class ContactRecordPage extends BasePage {
         String replaceFieldContactRecordXpath = getFieldContactRecordText.replace("<fieldName>",fieldName);
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceFieldContactRecordXpath))).getText();
     }
-    public String getFieldContactRecordAdress (String adressName){
+    public String getFieldContactRecordAddress(String adressName){
         String replaceFieldContactRecordXpath = getFieldContactRecordAddress.replace("<addressField>",adressName);
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceFieldContactRecordXpath))).getText();
     }

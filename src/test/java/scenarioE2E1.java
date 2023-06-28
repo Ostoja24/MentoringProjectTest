@@ -6,6 +6,7 @@ import org.junit.jupiter.api.*;
 import java.time.LocalDate;
 
 import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 
 @Epic("Accounts")
@@ -54,6 +55,7 @@ public class scenarioE2E1 extends BaseTest {
 
     @Test()
     @Order(1)
+    @ExtendWith(TestWatcherAllure.class)
     public void logIntoOrg() {
         LoginPage loginPage = new LoginPage(driver);
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
@@ -61,11 +63,12 @@ public class scenarioE2E1 extends BaseTest {
         loginPage.putKeysIntoFieldUsername(usernamevalue_login)
                 .putKeysIntoFieldPassword(passwordvalue_login)
                 .submitLoginButton();
-        Assertions.assertEquals("Setup", sfPage.getPageTitle());
+        Assertions.assertEquals("Setup", sfPage.getPageTitleOnSetup());
     }
 
     @Test()
     @Order(2)
+    @ExtendWith(TestWatcherAllure.class)
     public void salesAppTitleViewingInPage() {
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
         sfPage.searchInputIntoAppLauncher("Sales");
@@ -74,13 +77,15 @@ public class scenarioE2E1 extends BaseTest {
 
     @Test()
     @Order(3)
-    public void clickintoAccountTabOnSalesforcePageHeader() {
+    @ExtendWith(TestWatcherAllure.class)
+    public void clickIntoAccountTabOnSalesforcePageHeader() {
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
         sfPage.clickTabOnSalesforceHeader("Accounts");
     }
 
     @Test()
     @Order(4)
+    @ExtendWith(TestWatcherAllure.class)
     public void accountCreationMessage() {
         AccountListPage accountlistPage = new AccountListPage(driver);
         AccountFormPage accountPage = new AccountFormPage(driver);
@@ -106,6 +111,7 @@ public class scenarioE2E1 extends BaseTest {
 
     @Test()
     @Order(5)
+    @ExtendWith(TestWatcherAllure.class)
     public void detailsAccountEqualsToData() {
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
         accountRecordPage.clickDetailsRecordPageTab("detailTab");
@@ -125,6 +131,7 @@ public class scenarioE2E1 extends BaseTest {
 
     @Test()
     @Order(6)
+    @ExtendWith(TestWatcherAllure.class)
     public void creationNewContactInAccountAndViewingOnRelatedList() {
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
         ContactFormPage contactFormPage = new ContactFormPage(driver);
@@ -154,6 +161,7 @@ public class scenarioE2E1 extends BaseTest {
     }
     @Test()
     @Order(7)
+    @ExtendWith(TestWatcherAllure.class)
     public void checkingFieldsValuesOnContactDetails(){
         ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
@@ -164,11 +172,12 @@ public class scenarioE2E1 extends BaseTest {
         softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Mobile")).isEqualTo(mobileContact);
         softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Other Phone")).isEqualTo(phoneContact);
         softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Email")).isEqualTo(emailContact);
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordAdress("Mailing Address")).isEqualTo(mailingStreetContact + mailingCityContact + mailingZipContact);
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordAdress("Other Address")).isEqualTo(otherStreetContact + otherCityContact + otherZipContact);
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordAddress("Mailing Address")).isEqualTo(mailingStreetContact + mailingCityContact + mailingZipContact);
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordAddress("Other Address")).isEqualTo(otherStreetContact + otherCityContact + otherZipContact);
     }
     @Test()
     @Order(8)
+    @ExtendWith(TestWatcherAllure.class)
     public void changingNameOnExistingContactRecord(){
         ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
         SoftAssertions softAssertions = new SoftAssertions();

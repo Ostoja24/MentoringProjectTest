@@ -16,7 +16,7 @@ public class AccountRecordPage extends BasePage {
     private final String contactRecordRelatedList = "//span[@title='Contacts']/ancestor::*//span[text()='<contactName>']";
     private final By saveButtonContact = By.xpath("//button[@name='SaveEdit']");
     private final By toastContactCreationText = By.xpath("//div[@class='toastContent slds-notify__content']/..//a/div");
-    private final By contactNumberonRelatedList = By.xpath("//span[@title='Contacts']/..//span[@class='lds-shrink-none slds-m-right--xx-small']");
+    private final By contactNumberOnRelatedList = By.xpath("//span[@title='Contacts']/..//span[@class='lds-shrink-none slds-m-right--xx-small']");
 
 
     public String getAccountFieldText(String fieldName) {
@@ -47,7 +47,7 @@ public class AccountRecordPage extends BasePage {
         return this;
     }
     public String returnContactNumberonRelatedList(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(contactNumberonRelatedList)).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(contactNumberOnRelatedList)).getText();
     }
     public String returnToastContactRecordCreation(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(toastContactCreationText)).getText();
