@@ -18,7 +18,7 @@ public class BaseTest {
 
     private final static String ORG_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\data_login.json";
     private String usernameAdmin = "tomasz.ostojski@playful-bear-v3w7c0.com";
-    private String passwordAdmin = "Koliber12!";
+    private String passwordAdmin = "277AE817F2E575BD94EB7DC4A93D171C";
     private String orgURL = "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com";
     protected static WebDriver driver;
 
@@ -29,7 +29,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         // Chrome Options
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized", "--remote-allow-origins=*", "disable-popup-blocking", "allow-silent-push", "disable-default-apps", "--disable-notifications");
+        options.addArguments("--start-maximized", "--remote-allow-origins=*", "disable-popup-blocking", "allow-silent-push", "disable-default-apps", "--disable-notifications","--headless","window-size=1920,1080");
         driver = new ChromeDriver(options);
     }
 
