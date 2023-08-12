@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Refactor of Naming Methods and Variables">
+    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Changes in Pom. xml and logging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/data/data_login.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/data_login.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691834263909</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Changes in Pom. xml and logging">
+      <created>1691835291346</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1691835291346</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -322,7 +327,8 @@
     <MESSAGE value="Extending Scripts in Test scenarioE2E1" />
     <MESSAGE value="Modifications of Script" />
     <MESSAGE value="Refactor of Naming Methods and Variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor of Naming Methods and Variables" />
+    <MESSAGE value="Changes in Pom. xml and logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes in Pom. xml and logging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
