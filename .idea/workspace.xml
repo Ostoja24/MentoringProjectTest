@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Refactor of Naming Methods and Variables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/AccountRecordPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ContactRecordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ContactRecordPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/SalesforcePageHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/allureScreenshotTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestWatcherAllure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scenarioE2E1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +56,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/tomcz/IdeaProjects/MentoringProjectTest",
+    "last_opened_file_path": "C:/Users/tomcz/IdeaProjects/SkiloRegressionAutomationTest",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -274,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687156486600</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Refactor of Naming Methods and Variables">
+      <created>1687944378700</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1687944378700</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

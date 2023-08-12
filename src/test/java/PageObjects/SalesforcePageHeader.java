@@ -34,7 +34,7 @@ public class SalesforcePageHeader extends BasePage {
     public String getPageTitleOnSetup() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(appTitleOnSetupPage)).getText();
     }
-    public String getPageTitle(){
+    public String getPageTitle() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(appTitle)).getText();
     }
 }
