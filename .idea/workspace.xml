@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Changes in Pom. xml and logging">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Changes in Pom. xml and title" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +18,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -50,25 +52,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tomcz/IdeaProjects/SkiloRegressionAutomationTest&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "changesInProjectFixes",
+    "last_opened_file_path": "C:/Users/tomcz/IdeaProjects/SkiloRegressionAutomationTest",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.scenarioE2E1">
+  <component name="RunManager" selected="JUnit.scenarioE2ECreateNewAccountAndContact">
     <configuration name="HomePageTest.login_and_check_page_title" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
@@ -79,39 +82,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="scenarioE2E1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="scenarioE2ECreateNewAccountAndContact" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
+      <option name="MAIN_CLASS_NAME" value="scenarioE2ECreateNewAccountAndContact" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="scenarioE2E1.changingNameOnExistingContactRecord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="scenarioE2ECreateNewAccountAndContact.changingNameOnExistingContactRecord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
+      <option name="MAIN_CLASS_NAME" value="scenarioE2ECreateNewAccountAndContact" />
       <option name="METHOD_NAME" value="changingNameOnExistingContactRecord" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="scenarioE2E1.creatingNewContactFromRelatedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="scenarioE2ECreateNewAccountAndContact.creatingNewContactFromRelatedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
+      <option name="MAIN_CLASS_NAME" value="scenarioE2ECreateNewAccountAndContact" />
       <option name="METHOD_NAME" value="creatingNewContactFromRelatedList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="scenarioE2E1.scenarioAccountsCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="scenarioE2ECreateNewAccountAndContact.scenarioAccountsCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MentoringProjectTest" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="scenarioE2E1" />
+      <option name="MAIN_CLASS_NAME" value="scenarioE2ECreateNewAccountAndContact" />
       <option name="METHOD_NAME" value="scenarioAccountsCreation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -120,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.scenarioE2E1" />
-        <item itemvalue="JUnit.scenarioE2E1.changingNameOnExistingContactRecord" />
+        <item itemvalue="JUnit.scenarioE2ECreateNewAccountAndContact" />
+        <item itemvalue="JUnit.scenarioE2ECreateNewAccountAndContact.changingNameOnExistingContactRecord" />
         <item itemvalue="JUnit.HomePageTest.login_and_check_page_title" />
-        <item itemvalue="JUnit.scenarioE2E1.creatingNewContactFromRelatedList" />
-        <item itemvalue="JUnit.scenarioE2E1.scenarioAccountsCreation" />
+        <item itemvalue="JUnit.scenarioE2ECreateNewAccountAndContact.creatingNewContactFromRelatedList" />
+        <item itemvalue="JUnit.scenarioE2ECreateNewAccountAndContact.scenarioAccountsCreation" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691835291346</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Changes in Pom. xml and title">
+      <option name="closed" value="true" />
+      <created>1709142698738</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1709142698738</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,7 +316,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="changesInProjectFixes" />
                       </list>
                     </value>
                   </entry>
@@ -328,7 +339,8 @@
     <MESSAGE value="Modifications of Script" />
     <MESSAGE value="Refactor of Naming Methods and Variables" />
     <MESSAGE value="Changes in Pom. xml and logging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes in Pom. xml and logging" />
+    <MESSAGE value="Changes in Pom. xml and title" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes in Pom. xml and title" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
