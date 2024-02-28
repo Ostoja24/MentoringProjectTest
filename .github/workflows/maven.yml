@@ -26,4 +26,4 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Run Specific Selenium Test
-      run: mvn test -Dtest=scenarioE2E1
+      run: mvn test -Dtest=scenarioE2ECreateNewAccountAndContact
