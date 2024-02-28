@@ -12,7 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @Epic("Accounts")
 @Feature("1. Creating New Account")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class scenarioE2E1 extends BaseTest {
+public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
     private static final String accountName = "TestAccount";
     private static final String accountType = "Other";
     private static final String accountRating = "Cold";
