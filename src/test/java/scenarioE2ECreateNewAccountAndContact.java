@@ -1,8 +1,10 @@
 import PageObjects.*;
+import data.DataClass;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
 
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 
 import org.assertj.core.api.SoftAssertions;
@@ -13,22 +15,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @Feature("1. Creating New Account")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
-    private static final String accountName = "TestAccount";
-    private static final String accountType = "Other";
-    private static final String accountRating = "Cold";
-    private static final String accountIndustry = "Banking";
-    private static final String accountCustomerPriority = "Low";
-    private static final String accountSLA = "Platinum";
-    private static final String billingStreet = "Toruńska";
-    private static final String billingCity = "Toruń";
-    private static final String billingZip = "87-100";
-    private static final String shippingCity = "Warsaw";
-    private static final String shippingStreet = "Nadwiślańska 1";
-    private static final String shippingZip = "00-001";
     private static final String description = "This Account has been created by Selenium, ";
-    private final String usernamevalue_login = getUsernameAdmin();
-    private final String passwordvalue_login = getPasswordAdmin();
-    private final static String accountPhoneValue = accountPhone();
     private final static String randomNumbersValue = randomNumbers(5);
 
     private static final String firstNameContact = "Selenium-" + randomNumbers(5);
@@ -52,6 +39,10 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
     private static final String otherCityContact = fakerObject().address().city();
 
     private static final String otherZipContact = fakerObject().address().zipCode();
+    DataClass dataClass = new DataClass();
+
+    public scenarioE2ECreateNewAccountAndContact() throws FileNotFoundException {
+    }
 
     @Test()
     @Order(1)
@@ -59,9 +50,9 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
     public void logIntoOrg() {
         LoginPage loginPage = new LoginPage(driver);
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
-        loginPage.navigateToLoginUrl(driver, getOrgURL());
-        loginPage.putKeysIntoFieldUsername(usernamevalue_login)
-                .putKeysIntoFieldPassword(passwordvalue_login)
+        loginPage.navigateToLoginUrl(driver, dataClass.getOrgUrl());
+        loginPage.putKeysIntoFieldUsername(dataClass.getUsernameValue())
+                .putKeysIntoFieldPassword(dataClass.getPasswordValue())
                 .submitLoginButton();
         Assertions.assertEquals("Setup", sfPage.getPageTitleOnSetup());
     }
@@ -91,22 +82,22 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
         AccountFormPage accountPage = new AccountFormPage(driver);
         accountlistPage
                 .clicknewAccountButton()
-                .putKeysIntoFieldAccountName(accountName + randomNumbersValue)
-                .putKeysIntoFieldAccountType(accountType)
-                .putKeysIntoFieldAccountRatingValue(accountRating)
-                .putKeysIntoFieldPhoneNumber(accountPhoneValue)
-                .putKeysIntoFieldBillingStreet(billingStreet)
-                .putKeysIntoFieldAccountIndustry(accountIndustry)
-                .putKeysIntoFieldBillingCity(billingCity)
-                .putKeysIntoFieldBillingZipValue(billingZip)
-                .putKeysIntoFieldShippingCity(shippingCity)
-                .putKeysIntoFieldShippingStreet(shippingStreet)
-                .putKeysIntoFieldShippingZip(shippingZip)
-                .putKeysIntoFieldSLAValue(accountSLA)
-                .putKeysIntoFieldAccountCustomerPriority(accountCustomerPriority)
-                .putDescription(description + LocalDate.now())
+                .putKeysIntoFieldAccountName(dataClass.getAccountName() + randomNumbersValue)
+                .putKeysIntoFieldAccountType(dataClass.getAccountType())
+                .putKeysIntoFieldAccountRatingValue(dataClass.getAccountRating())
+                .putKeysIntoFieldPhoneNumber(dataClass.getAccountPhone())
+                .putKeysIntoFieldBillingStreet(dataClass.getBillingStreet())
+                .putKeysIntoFieldAccountIndustry(dataClass.getAccountIndustry())
+                .putKeysIntoFieldBillingCity(dataClass.getBillingCity())
+                .putKeysIntoFieldBillingZipValue(dataClass.getBillingZip())
+                .putKeysIntoFieldShippingCity(dataClass.getShippingCity())
+                .putKeysIntoFieldShippingStreet(dataClass.getShippingStreet())
+                .putKeysIntoFieldShippingZip(dataClass.getShippingZip())
+                .putKeysIntoFieldSLAValue(dataClass.getAccountSLA())
+                .putKeysIntoFieldAccountCustomerPriority(dataClass.getAccountCustomerPriority())
+                .putDescription((dataClass.getDescription()) + LocalDate.now())
                 .clickSaveButton();
-        Assertions.assertEquals("Account " + '"' + accountName + randomNumbersValue + '"' + " was created.", accountPage.accountToastText());
+        Assertions.assertEquals("Account " + '"' + dataClass.getAccountName() + randomNumbersValue + '"' + " was created.", accountPage.accountToastText());
     }
 
     @Test()
@@ -116,13 +107,13 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
         accountRecordPage.clickDetailsRecordPageTab("detailTab");
         SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Account Name")).isEqualTo(accountName + randomNumbersValue);
-        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Industry")).isEqualTo(accountIndustry, accountRecordPage.getAccountFieldText("Industry"));
-        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Type")).isEqualTo(accountType, accountRecordPage.getAccountFieldText("Type"));
-        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Rating")).isEqualTo(accountRating, accountRecordPage.getAccountFieldText("Rating"));
-        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Customer Priority")).isEqualTo(accountCustomerPriority, accountRecordPage.getAccountFieldText("Customer Priority"));
-        softAssertions.assertThat(accountRecordPage.getAccountPhoneOnRecord()).isEqualTo(accountPhoneValue);
-        softAssertions.assertThat(accountRecordPage.getAccountFieldText("SLA")).isEqualTo(accountSLA, accountRecordPage.getAccountFieldText("SLA"));
+        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Account Name")).isEqualTo(dataClass.getAccountName() + randomNumbersValue);
+        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Industry")).isEqualTo(dataClass.getAccountIndustry(), accountRecordPage.getAccountFieldText("Industry"));
+        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Type")).isEqualTo(dataClass.getAccountType(), accountRecordPage.getAccountFieldText("Type"));
+        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Rating")).isEqualTo(dataClass.getAccountRating(), accountRecordPage.getAccountFieldText("Rating"));
+        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Customer Priority")).isEqualTo(dataClass.getAccountCustomerPriority(), accountRecordPage.getAccountFieldText("Customer Priority"));
+        softAssertions.assertThat(accountRecordPage.getAccountPhoneOnRecord()).isEqualTo(dataClass.getAccountPhone());
+        softAssertions.assertThat(accountRecordPage.getAccountFieldText("SLA")).isEqualTo(dataClass.getAccountSLA(), accountRecordPage.getAccountFieldText("SLA"));
         softAssertions.assertThat(accountRecordPage.getAccountAddressText("Billing Address")).isEqualTo("Toruńska\n" +
                 "Toruń\n" +
                 "87-100");
