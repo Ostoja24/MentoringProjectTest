@@ -1,13 +1,17 @@
 {
   "AccountName": "TestAccount",
-  "AccountType": "Prospect",
+  "AccountType": "Other",
   "AccountRating": "Cold",
   "AccountIndustry": "Banking",
   "AccountCustomerPriority": "Low",
-  "AccountSLA":"Bronze",
+  "AccountSLA":"Platinum",
   "BillingStreet": "Toruńska",
   "BillingCity": "Toruń",
   "BillingZip": "87-100",
+  "ShippingCity": "Warsaw",
+  "ShippingStreet": "Nadwiślańska 1",
+  "ShippingZip": "00-001",
+  "Description":  "This Account has been created by Selenium, ",
   "AccountRecordsURL": "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com/lightning/o/Account/home",
   "Phone": "009882333"
 }

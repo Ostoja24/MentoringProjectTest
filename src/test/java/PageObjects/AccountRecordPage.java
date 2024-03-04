@@ -9,7 +9,7 @@ public class AccountRecordPage extends BasePage {
         super(driver);
     }
     private final String accountRecordItem = "//records-record-layout-item[@field-label='<Field>']/..//lightning-formatted-text";
-    private final By accountPhoneRecord = By.xpath("//div[@records-recordlayoutitem_recordlayoutitem]/..//a[@lightning-formattedphone_formattedphone]");
+    private final By accountPhoneRecord = By.xpath("//records-record-layout-item[@field-label='Phone']//lightning-formatted-phone//a");
     private final String nameTab = "//a[@data-tab-value='<nameTab>']";
     private final String accountAddress = "//span[text()='<Field>']/ancestor::div[@class='slds-form-element slds-hint-parent test-id__output-root slds-form-element_edit slds-form-element_readonly is-stacked is-stacked-not-editing']//lightning-formatted-address";
     private final String buttonNewOnRelatedList = "//li[@data-target-selection-name='sfdc:StandardButton.<newButton>']";
