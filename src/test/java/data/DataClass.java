@@ -1,35 +1,48 @@
 package data;
 
+import com.github.javafaker.Faker;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Locale;
 import java.util.Random;
 import java.util.stream.Collectors;
 
 public class DataClass {
-    private String AccountName;
-    private String AccountType;
-    private String AccountIndustry;
-    private String AccountCustomerPriority;
-    private String AccountSLA;
-    private String BillingStreet;
-    private String BillingCity;
-    private String BillingZip;
-    private String ShippingCity;
-    private String ShippingStreet;
-    private String ShippingZip;
-    private String DescriptionValue;
-    private String UsernameValue;
-    private String PasswordValue;
-    private String AccountPhone;
-    private String OrgUrl;
+    private final String AccountName;
+    private final String AccountType;
+    private final String AccountIndustry;
+    private final String AccountCustomerPriority;
+    private final String AccountSLA;
+    private final String BillingStreet;
+    private final String BillingCity;
+    private final String BillingZip;
+    private final String ShippingCity;
+    private final String ShippingStreet;
+    private final String ShippingZip;
+    private final String DescriptionValue;
+    private final String UsernameValue;
+    private final String PasswordValue;
+    private final String AccountPhone;
+    private final String OrgUrl;
 
-    private double RandomNumber;
 
-    private String AccountRating;
+    private final String AccountRating;
+    private final String lastNameContact;
+    private final String mobileContact;
+    private final String emailContact;
+    private final String mailingStreetContact = fakerObject().address().streetName();
+    private final String mailingCityContact = fakerObject().address().cityName();
+    private final String mailingZipContact = fakerObject().address().zipCode();
+    private final String otherStreetContact = fakerObject().address().streetName();
+    private final String otherCityContact = fakerObject().address().city();
+    private final String otherZipContact = fakerObject().address().zipCode();
+    public final static String randomNumbersValue = randomNumbers(5);
+    public final static String phoneContact = randomNumbers(9);
+    private final static String firstNameContact = "Selenium-" + randomNumbers(5);
     private final static File loginData = new File("src/test/java/data/data_login.json");
     private final static File accountInformation = new File("src/test/java/data/AccountsInfo.json");
 
@@ -54,6 +67,57 @@ public class DataClass {
         PasswordValue = jsonUser.getString("password");
         OrgUrl = jsonUser.getString("orgURL");
         AccountPhone = jsonAccount.getString("Phone");
+        description = "This Account has been created by Selenium, ";
+
+        lastNameContact = "Contact";
+
+        mobileContact = accountPhone();
+
+        emailContact = "contact-" + randomNumbers(4) + "@yopmail.com";
+    }
+
+    public String getDescriptionValue() {
+        return DescriptionValue;
+    }
+
+    public String getFirstNameContact() {
+        return firstNameContact;
+    }
+
+    public String getLastNameContact() {
+        return lastNameContact;
+    }
+
+    public String getMobileContact() {
+        return mobileContact;
+    }
+
+    public String getEmailContact() {
+        return emailContact;
+    }
+
+    public String getMailingStreetContact() {
+        return mailingStreetContact;
+    }
+
+    public String getMailingCityContact() {
+        return mailingCityContact;
+    }
+
+    public String getMailingZipContact() {
+        return mailingZipContact;
+    }
+
+    public String getOtherStreetContact() {
+        return otherStreetContact;
+    }
+
+    public String getOtherCityContact() {
+        return otherCityContact;
+    }
+
+    public String getOtherZipContact() {
+        return otherZipContact;
     }
 
     public String getOrgUrl() {
@@ -66,10 +130,6 @@ public class DataClass {
 
     public String getAccountType() {
         return AccountType;
-    }
-
-    public double getRandomNumber() {
-        return RandomNumber;
     }
 
     public String getAccountRating() {
@@ -133,10 +193,18 @@ public class DataClass {
     public String getAccountPhone() {
         return AccountPhone;
     }
-    public static String accountPhone()
-    {
+
+    public static String accountPhone() {
         return new Random().ints(9, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
 
     }
 
+    public static String randomNumbers(Integer numberofNumbers) {
+        return new Random().ints(numberofNumbers, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
+    }
+
+    public static Faker fakerObject() {
+        return new Faker(new Locale("pl"));
+    }
 }
+
