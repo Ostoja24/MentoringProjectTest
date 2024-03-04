@@ -15,11 +15,6 @@ import java.util.stream.Collectors;
 
 public class BaseTest {
     // Variables used in Test Project
-
-    private final static String ORG_INFORMATION = "C:\\Users\\tomcz\\IdeaProjects\\MentoringProjectTest\\src\\test\\java\\data\\data_login.json";
-    private final String usernameAdmin = "tomasz.ostojski@playful-bear-v3w7c0.com";
-    private final String passwordAdmin = "277AE817F2E575BD94EB7DC4A93D171C";
-    private final String orgURL = "https://playful-bear-v3w7c0-dev-ed.trailblaze.lightning.force.com";
     protected static WebDriver driver;
 
 
@@ -45,19 +40,6 @@ public class BaseTest {
     // METHODS
 
 
-    public String getUsernameAdmin() {
-        return usernameAdmin;
-    }
-
-
-    public String getPasswordAdmin() {
-        return passwordAdmin;
-    }
-
-    public String getOrgURL() {
-        return orgURL;
-    }
-
 
     public static String accountPhone()
     {
@@ -68,6 +50,6 @@ public class BaseTest {
         return new Random().ints(numberofNumbers, 0, 10).mapToObj(Integer::toString).collect(Collectors.joining());
     }
     public static Faker fakerObject(){
-        return new Faker(Locale.of("pl"));
+        return new Faker(new Locale("pl"));
     }
 }

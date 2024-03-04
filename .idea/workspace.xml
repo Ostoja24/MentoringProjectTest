@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Changes in Pom. xml and title" />
+    <list default="true" id="f5188329-d80a-4cc6-acfd-cb4ed5c8deca" name="Changes" comment="Fixes and changes in methods for supplying test data">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/data/AccountsInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/AccountsInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/data/DataClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/DataClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/scenarioE2ECreateNewAccountAndContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scenarioE2ECreateNewAccountAndContact.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +70,7 @@
     "git-widget-placeholder": "changesInProjectFixes",
     "last_opened_file_path": "C:/Users/tomcz/IdeaProjects/SkiloRegressionAutomationTest",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "configurable.group.appearance"
   }
@@ -316,7 +325,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="changesInProjectFixes" />
+                        <option value="fixes" />
                       </list>
                     </value>
                   </entry>
@@ -340,7 +349,8 @@
     <MESSAGE value="Refactor of Naming Methods and Variables" />
     <MESSAGE value="Changes in Pom. xml and logging" />
     <MESSAGE value="Changes in Pom. xml and title" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes in Pom. xml and title" />
+    <MESSAGE value="Fixes and changes in methods for supplying test data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes and changes in methods for supplying test data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
