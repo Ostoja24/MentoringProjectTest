@@ -21,7 +21,6 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
 
     @Test()
     @Order(1)
-    @ExtendWith(TestWatcherAllure.class)
     public void logIntoOrg() throws FileNotFoundException {
         DataClass dataClass = new DataClass();
         LoginPage loginPage = new LoginPage(driver);
@@ -35,7 +34,6 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
 
     @Test()
     @Order(2)
-    @ExtendWith(TestWatcherAllure.class)
     public void salesAppTitleViewingInPage() {
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
         sfPage.searchInputIntoAppLauncher("Sales");
@@ -44,7 +42,6 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
 
     @Test()
     @Order(3)
-    @ExtendWith(TestWatcherAllure.class)
     public void clickIntoAccountTabOnSalesforcePageHeader() {
         SalesforcePageHeader sfPage = new SalesforcePageHeader(driver);
         sfPage.clickTabOnSalesforceHeader("Accounts");
@@ -52,7 +49,6 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
 
     @Test()
     @Order(4)
-    @ExtendWith(TestWatcherAllure.class)
     public void accountCreationMessage() throws FileNotFoundException {
         DataClass dataClass = new DataClass();
         AccountListPage accountlistPage = new AccountListPage(driver);
@@ -79,7 +75,6 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
 
     @Test()
     @Order(5)
-    @ExtendWith(TestWatcherAllure.class)
     public void detailsAccountEqualsToData() throws FileNotFoundException {
         DataClass dataClass = new DataClass();
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
@@ -102,7 +97,6 @@ Toruńska
 
     @Test()
     @Order(6)
-    @ExtendWith(TestWatcherAllure.class)
     public void creationNewContactInAccountAndViewingOnRelatedList() throws FileNotFoundException {
         DataClass dc = new DataClass();
         AccountRecordPage accountRecordPage = new AccountRecordPage(driver);
@@ -135,7 +129,6 @@ Toruńska
     }
     @Test()
     @Order(7)
-    @ExtendWith(TestWatcherAllure.class)
     public void checkingFieldsValuesOnContactDetails() throws FileNotFoundException {
         DataClass dataClass = new DataClass();
         ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
@@ -151,7 +144,6 @@ Toruńska
     }
     @Test()
     @Order(8)
-    @ExtendWith(TestWatcherAllure.class)
     public void changingNameOnExistingContactRecord() throws FileNotFoundException {
         DataClass dc = new DataClass();
         ContactRecordPage contactRecordPage = new ContactRecordPage(driver);
