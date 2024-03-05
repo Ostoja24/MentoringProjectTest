@@ -2,6 +2,7 @@
 ## Project connected with technology stack:
 - Java
 - Selenium
-- Allure
+- Junit
+- Maven
 ---
 The Test Environment is localised on SaaS solution - Salesforce Playground
