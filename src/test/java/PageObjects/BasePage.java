@@ -22,7 +22,7 @@ public class BasePage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(implicitWaitfield));
         this.wait30 = new WebDriverWait(driver, Duration.ofSeconds(30));
-        Actions actions = new Actions(driver);
+        this.actions = new Actions(driver);
         js = ((JavascriptExecutor) driver);
 
     }
@@ -32,11 +32,8 @@ public class BasePage {
             Thread.sleep(3000);
         } catch (InterruptedException e) { }
     }
-    protected void clickElementJavaScript(WebElement element) {
-        js.executeScript("arguments[0].click();", element);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) { }
+    protected void clickOnElement(WebElement elementToClick){
+        js.executeScript("arguments[0].click();", elementToClick);
     }
 
 }

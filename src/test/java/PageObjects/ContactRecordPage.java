@@ -12,10 +12,13 @@ public class ContactRecordPage extends BasePage {
     private final By clickEditName = By.xpath("//div/button[@title='Edit Name'][1]");
     private final By lastNameField = By.xpath("//input[@placeholder='Last Name']");
     private final By saveButton = By.xpath("//button[@name='SaveEdit']");
+    private final String getFieldContactRecordPhoneMailText  = "//span[text()='<fieldName>']/ancestor::dl/..//a";
+    private final By detailsComponent = By.xpath("//div[@class=\"windowViewMode-normal oneContent active lafPageHost\"]//records-record-layout-block");
     public ContactRecordPage(WebDriver driver) {super(driver);}
 
     public ContactRecordPage clickDetailsContact (){
         wait.until(ExpectedConditions.elementToBeClickable(clickDetailsContact)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(detailsComponent));
         return this;
     }
 
@@ -23,15 +26,16 @@ public class ContactRecordPage extends BasePage {
         String replaceFieldContactRecordXpath = getFieldContactRecordText.replace("<fieldName>",fieldName);
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceFieldContactRecordXpath))).getText();
     }
-    public String getFieldContactRecordAddress(String adressName){
-        String replaceFieldContactRecordXpath = getFieldContactRecordAddress.replace("<addressField>",adressName);
-        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceFieldContactRecordXpath))).getText();
+    public String getFieldContactRecordPhoneAndEmail(String fieldName) {
+        String replaceFieldContactRecordPhoneMailXpath = getFieldContactRecordPhoneMailText.replace("<fieldName>", fieldName);
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(replaceFieldContactRecordPhoneMailXpath))).getText();
     }
     public ContactRecordPage clickEditName (){
         wait.until(ExpectedConditions.elementToBeClickable(clickEditName)).click();
         return this;
     }
     public ContactRecordPage changeLastName(String lastNameText){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).clear();
         wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).sendKeys(lastNameText);
         return this;
     }

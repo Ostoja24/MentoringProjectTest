@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AccountFormPage extends BasePage {
 
     private final By accountIndustryField = By.xpath("//label[text()='Industry']/..//button[@role='combobox']");
-    private final By accountnamelement = By.xpath("//input[@name='Name']");
-    private final By accounttypefield = By.xpath("//label[text()='Type']/..//button[@role='combobox']");
+    private final By accountNameElement = By.xpath("//input[@name='Name']");
+    private final By accountTypeField = By.xpath("//label[text()='Type']/..//button[@role='combobox']");
     private final By accountNameTitle = By.xpath("//lightning-formatted-text[@class='custom-truncate']");
     private String accountTypefield = "//lightning-base-combobox-item[@data-value='<typeName>']";
     private String accountIndustryPicklistOption = "//lightning-base-combobox-item[@data-value='<industryName>']";
@@ -41,12 +41,14 @@ public class AccountFormPage extends BasePage {
     }
 
     public AccountFormPage putKeysIntoFieldAccountName(String accountName) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(accountnamelement)).sendKeys(accountName);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountNameElement)).sendKeys(accountName);
         return this;
     }
 
     public AccountFormPage putKeysIntoFieldAccountType(String AccountType) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(accounttypefield)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountTypeField)).click();
+//        scrollToElement(wait.until(ExpectedConditions.visibilityOfElementLocated(accountTypeField)));
+//        clickOnElement(wait.until(ExpectedConditions.visibilityOfElementLocated(accountTypeField)));
         String accountTypeOption = accountTypefield.replace("<typeName>", AccountType);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(accountTypeOption))).click();
         return this;

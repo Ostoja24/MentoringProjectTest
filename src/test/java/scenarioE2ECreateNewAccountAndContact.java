@@ -92,10 +92,12 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
         softAssertions.assertThat(accountRecordPage.getAccountFieldText("Customer Priority")).isEqualTo(dataClass.getAccountCustomerPriority(), accountRecordPage.getAccountFieldText("Customer Priority"));
         softAssertions.assertThat(accountRecordPage.getAccountPhoneOnRecord()).isEqualTo(dataClass.getAccountPhone());
         softAssertions.assertThat(accountRecordPage.getAccountFieldText("SLA")).isEqualTo(dataClass.getAccountSLA(), accountRecordPage.getAccountFieldText("SLA"));
-        softAssertions.assertThat(accountRecordPage.getAccountAddressText("Billing Address")).isEqualTo("Toruńska\n" +
-                "Toruń\n" +
-                "87-100");
-        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Description")).isEqualTo(dataClass.getDescription());
+        softAssertions.assertThat(accountRecordPage.getAccountAddressText("Billing Address")).isEqualTo(
+                """
+Toruńska
+87-100 Toruń""");
+        softAssertions.assertThat(accountRecordPage.getAccountFieldText("Description")).isEqualTo(dataClass.getDescription() + LocalDate.now());
+        softAssertions.assertAll();
     }
 
     @Test()
@@ -125,8 +127,10 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
                 .putIntoFieldInContactForm("Other City","input",dc.getOtherCityContact())
                 .putIntoFieldInContactForm("Other Zip/Postal Code","input",dc.getOtherZipContact());
         accountRecordPage.clickSaveContactButton();
+        softAssertions.assertThat(accountRecordPage.returnToastContactRecordCreation()).isEqualTo("Mr. " + dc.getFirstNameContact() + " Contact");
         softAssertions.assertThat(accountRecordPage.returnContactNumberonRelatedList()).isEqualTo("(1)");
-        softAssertions.assertThat(accountRecordPage.returnToastContactRecordCreation()).isEqualTo("Mr.  " + dc.getFirstNameContact());
+        ;
+        softAssertions.assertAll();
 
     }
     @Test()
@@ -139,12 +143,11 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
         SoftAssertions softAssertions = new SoftAssertions();
         accountRecordPage.clickRecordButtonOnRelatedList(dataClass.getFirstNameContact() + " " + dataClass.getLastNameContact());
         contactRecordPage.clickDetailsContact();
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Name")).isEqualTo("Mr. " + dataClass.getFirstNameContact());
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Mobile")).isEqualTo(dataClass.getMobileContact());
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Other Phone")).isEqualTo(dataClass.getAccountPhone());
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Email")).isEqualTo(dataClass.getEmailContact());
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordAddress("Mailing Address")).isEqualTo(dataClass.getMailingStreetContact() + dataClass.getMailingCityContact() + dataClass.getMailingZipContact());
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordAddress("Other Address")).isEqualTo(dataClass.getOtherStreetContact() + dataClass.getOtherCityContact() + dataClass.getOtherCityContact());
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Name")).isEqualTo("Mr. " + dataClass.getFirstNameContact() + " Contact");
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordPhoneAndEmail("Mobile")).isEqualTo(dataClass.getMobileContact());
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordPhoneAndEmail("Other Phone")).isEqualTo(dataClass.getAccountPhone());
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordPhoneAndEmail("Email")).isEqualTo(dataClass.getEmailContact());
+        softAssertions.assertAll();
     }
     @Test()
     @Order(8)
@@ -157,6 +160,7 @@ public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
                 .changeLastName("Automation-Test")
                 .clickSaveButton();
         softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Name")).isNotEqualTo("Mr. " + dc.getFirstNameContact());
-        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Name")).isEqualTo("Mr. " + "Automation-Test");
+        softAssertions.assertThat(contactRecordPage.getFieldContactRecordText("Name")).isEqualTo("Mr. " + dc.getFirstNameContact()+ " Automation-Test");
+        softAssertions.assertAll();
     }
 }

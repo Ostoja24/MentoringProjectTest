@@ -32,16 +32,18 @@ public class DataClass {
 
     private final String AccountRating;
     private final String lastNameContact;
-    private final String mobileContact;
-    private final String emailContact;
+    private final static String mobileContact = accountPhone();
+    private final static String emailContact = "contact-" + randomNumbers(4) + "@yopmail.com";
     private final String mailingStreetContact = fakerObject().address().streetName();
     private final String mailingCityContact = fakerObject().address().cityName();
     private final String mailingZipContact = fakerObject().address().zipCode();
     private final String otherStreetContact = fakerObject().address().streetName();
     private final String otherCityContact = fakerObject().address().city();
     private final String otherZipContact = fakerObject().address().zipCode();
+    private final Double RandomNumber;
+    private final String description;
     public final static String randomNumbersValue = randomNumbers(5);
-    public final static String phoneContact = randomNumbers(9);
+    private final static String phoneContact = accountPhone();
     private final static String firstNameContact = "Selenium-" + randomNumbers(5);
     private final static File loginData = new File("src/test/java/data/data_login.json");
     private final static File accountInformation = new File("src/test/java/data/AccountsInfo.json");
@@ -71,9 +73,6 @@ public class DataClass {
 
         lastNameContact = "Contact";
 
-        mobileContact = accountPhone();
-
-        emailContact = "contact-" + randomNumbers(4) + "@yopmail.com";
     }
 
     public String getDescriptionValue() {

@@ -8,7 +8,7 @@ public class AccountRecordPage extends BasePage {
     public AccountRecordPage(WebDriver driver) {
         super(driver);
     }
-    private final String accountRecordItem = "//records-record-layout-item[@field-label='<Field>']/..//lightning-formatted-text";
+    private final String accountRecordItem = "//records-record-layout-item[@field-label='<Field>']//lightning-formatted-text";
     private final By accountPhoneRecord = By.xpath("//records-record-layout-item[@field-label='Phone']//lightning-formatted-phone//a");
     private final String nameTab = "//a[@data-tab-value='<nameTab>']";
     private final String accountAddress = "//span[text()='<Field>']/ancestor::div[@class='slds-form-element slds-hint-parent test-id__output-root slds-form-element_edit slds-form-element_readonly is-stacked is-stacked-not-editing']//lightning-formatted-address";
@@ -47,6 +47,7 @@ public class AccountRecordPage extends BasePage {
         return this;
     }
     public String returnContactNumberonRelatedList(){
+        wait.until(ExpectedConditions.elementToBeClickable(contactNumberOnRelatedList));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(contactNumberOnRelatedList)).getText();
     }
     public String returnToastContactRecordCreation(){
