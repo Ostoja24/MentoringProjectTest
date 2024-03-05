@@ -1,20 +1,16 @@
 import PageObjects.*;
 import data.DataClass;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
 
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import static data.DataClass.randomNumbersValue;
 
 
-@Epic("Accounts")
-@Feature("1. Creating New Account")
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class scenarioE2ECreateNewAccountAndContact extends BaseTest {
 
